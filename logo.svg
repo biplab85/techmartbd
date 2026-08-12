@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 72" width="236" height="72"
+     role="img" aria-labelledby="tcb-title tcb-desc">
+  <title id="tcb-title">TechCartBD</title>
+  <desc id="tcb-desc">TechCartBD logo: a TC monogram in lime, emerald and teal beside the TECHCARTBD wordmark and the techcartbd.com domain.</desc>
+
+  <!--
+    Geometry system (all values in viewBox units)
+      house angle .... 7 across : 9 down  (all angled terminals)
+      stroke weight .. 10.5  (T stem, C spine, C bowl)
+      top band ....... y 13.4 - 24.0
+      baseline ....... y 58.8
+      C elbow ........ centre 52.1 44.7, outer r 14.1, inner r 3.6
+      seams .......... 3.0 crossbar-to-arm, 1.2 arm-to-spine
+  -->
+
+  <defs>
+    <!-- T crossbar: emerald (left) to lime (right), tilted slightly up toward the right -->
+    <linearGradient id="tcb-bar" gradientUnits="userSpaceOnUse" x1="11" y1="21" x2="46.9" y2="15">
+      <stop offset="0"    stop-color="#109450"/>
+      <stop offset="0.08" stop-color="#17924E"/>
+      <stop offset="0.21" stop-color="#269146"/>
+      <stop offset="0.35" stop-color="#3D933E"/>
+      <stop offset="0.48" stop-color="#609C26"/>
+      <stop offset="0.62" stop-color="#73AD15"/>
+      <stop offset="0.75" stop-color="#83BA0E"/>
+      <stop offset="1"    stop-color="#86BD08"/>
+    </linearGradient>
+
+    <!-- T stem: emerald descending to deep teal -->
+    <linearGradient id="tcb-stem" gradientUnits="userSpaceOnUse" x1="26.5" y1="24" x2="26.5" y2="58.8">
+      <stop offset="0"   stop-color="#067F57"/>
+      <stop offset="0.2" stop-color="#058159"/>
+      <stop offset="0.4" stop-color="#04775B"/>
+      <stop offset="0.6" stop-color="#046E65"/>
+      <stop offset="0.8" stop-color="#04676F"/>
+      <stop offset="1"   stop-color="#036474"/>
+    </linearGradient>
+
+    <!-- C top arm: near-flat emerald, cooling very slightly downward -->
+    <linearGradient id="tcb-arm" gradientUnits="userSpaceOnUse" x1="56" y1="13.4" x2="56" y2="24">
+      <stop offset="0" stop-color="#10905A"/>
+      <stop offset="1" stop-color="#0C8150"/>
+    </linearGradient>
+
+    <!-- C spine + bowl: lime (top left) sweeping diagonally to deep teal (bottom right) -->
+    <linearGradient id="tcb-hook" gradientUnits="userSpaceOnUse" x1="38" y1="25.2" x2="70.8" y2="58.8">
+      <stop offset="0"    stop-color="#7FB80A"/>
+      <stop offset="0.18" stop-color="#77B411"/>
+      <stop offset="0.28" stop-color="#519827"/>
+      <stop offset="0.37" stop-color="#2C8C41"/>
+      <stop offset="0.48" stop-color="#03795F"/>
+      <stop offset="0.75" stop-color="#02636C"/>
+      <stop offset="1"    stop-color="#016270"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== TC monogram ===== -->
+  <g id="tcb-mark">
+    <!-- T crossbar: vertical left edge, right terminal cut on the house angle -->
+    <path fill="url(#tcb-bar)"  d="M11 13.4H46.86L38.61 24H11Z"/>
+    <!-- T stem -->
+    <path fill="url(#tcb-stem)" d="M21 24h11v34.8H21z"/>
+    <!-- C top arm: parallelogram, both terminals on the house angle -->
+    <path fill="url(#tcb-arm)"  d="M49.86 13.4H71.86L63.61 24H41.61Z"/>
+    <!-- C spine + bowl: one 10.5-wide stroke bent through the elbow, angled terminal -->
+    <path fill="url(#tcb-hook)" d="M38 25.2H48.5V44.7A3.6 3.6 0 0 0 52.1 48.3H70.8L63.8 58.8H52.1A14.1 14.1 0 0 1 38 44.7Z"/>
+  </g>
+
+  <!-- ===== Wordmark =====
+       Live text, not outlines: the source is a 236px raster whose cap height is 15px,
+       which is not enough detail to trace the typeface faithfully. Set the real brand
+       font here, then convert to outlines before shipping.
+       textLength locks the run to the measured 129.5 / 83.5 widths under any fallback. -->
+  <g id="tcb-type">
+    <text x="84" y="39.5"
+          font-family="Montserrat, Poppins, Gilroy, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+          font-size="21.4" font-weight="700" letter-spacing="-0.3"
+          textLength="129.5" lengthAdjust="spacing">
+      <tspan fill="#000000">TECH</tspan><tspan fill="#7AB80C">CART</tspan><tspan fill="#000000">BD</tspan>
+    </text>
+    <text x="85" y="57.5"
+          font-family="Montserrat, Poppins, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+          font-size="11.4" font-weight="400" letter-spacing="0.15" fill="#333333"
+          textLength="83.5" lengthAdjust="spacing">techcartbd.com</text>
+  </g>
+</svg>

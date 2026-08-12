@@ -1,0 +1,339 @@
+/* ==========================================================================
+   TECHCARTBD — Facebook banner system (light edition)
+
+   Rebuilt to match the supplied reference strip: white/off-white canvas,
+   deep-teal colour blocks, a lime edge cutting across on the diagonal, navy
+   display type with the second line in lime, outlined trust icons and a
+   lime pill CTA.
+
+   THE HOUSE ANGLE
+   logo.svg cuts every terminal 7 across : 9 down (37.87deg). Colour blocks,
+   photo seams, badges and dividers all reuse that angle, so the banners read
+   as the logo's own geometry instead of generic ad furniture.
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat-latin-var.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  /* straight from logo.svg */
+  --lime:      #7AB80C;
+  --emerald:   #0F8654;
+  --teal:      #02626C;
+
+  /* the reference palette */
+  --lime-hi:   #8FD00E;
+  --lime-lo:   #63A00A;
+  --teal-deep: #0A4A50;
+  --teal-mid:  #0E5A61;
+  --navy:      #12303B;   /* display type on light */
+  --slate:     #55686E;   /* body copy on light */
+  --paper:     #FFFFFF;
+  --paper-2:   #F4F7F3;
+  --line:      #DDE5E2;
+  --line-dark: rgba(255,255,255,.20);
+
+  --ramp:      linear-gradient(103deg, var(--lime) 0%, var(--emerald) 54%, var(--teal) 100%);
+  --ramp-lime: linear-gradient(100deg, #9BDC10 0%, #7AB80C 52%, #4E9A17 100%);
+  --ramp-teal: linear-gradient(150deg, #0E5A61 0%, #0A4A50 52%, #063338 100%);
+
+  --angle: 37.87deg;
+  --skew: -37.87deg;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #23282a;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* --------------------------------------------------------------------------
+   Canvas + Facebook placement sizes
+   -------------------------------------------------------------------------- */
+.b {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--navy);
+  isolation: isolate;
+}
+.s-feed  { width: 1200px; height: 630px;  }  /* feed post / link share */
+.s-sq    { width: 1080px; height: 1080px; }  /* square feed + carousel */
+.s-cover { width: 1640px; height: 856px;  }  /* page cover photo        */
+.s-story { width: 1080px; height: 1920px; }  /* story / reel            */
+
+/* Cover safe area: Facebook crops the cover hard on mobile. Anything that
+   must survive both crops lives inside this box. */
+.cover-safe { position: absolute; left: 0; right: 0; top: 128px; bottom: 128px; }
+
+/* --------------------------------------------------------------------------
+   Colour blocks on the house angle
+   -------------------------------------------------------------------------- */
+.blk { position: absolute; z-index: 1; transform: skewX(var(--skew)); transform-origin: top left; }
+.blk-teal { background: var(--ramp-teal); }
+.blk-lime { background: var(--ramp-lime); }
+.blk-pale { background: var(--paper-2); }
+
+/* Angled panel. The seam angle is set per banner with an inline clip-path
+   rather than a skew: on a 630px-tall canvas a true 37.87deg skew throws the
+   edge ~490px sideways, which swallows the layout. clip-path lets each canvas
+   carry the house angle at a lean its own proportions can hold. */
+.pan { position: absolute; top: 0; bottom: 0; z-index: 1; }
+.pan-teal { background: var(--ramp-teal); }
+.pan-lime { background: var(--ramp-lime); }
+.pan-pale { background: var(--paper-2); }
+
+/* full-bleed teal field, no skew */
+.field-teal { position: absolute; inset: 0; z-index: 0; background: var(--ramp-teal); }
+.field-pale { position: absolute; inset: 0; z-index: 0; background: var(--paper-2); }
+
+/* the reference's signature move: a lime sliver riding the seam between a
+   pale block and a teal one */
+.sliver { position: absolute; z-index: 3; background: var(--ramp-lime);
+          transform: skewX(var(--skew)); transform-origin: top left; }
+
+/* soft curved sweep, the rounded counterpart to the angled seam */
+.sweep { position: absolute; z-index: 1; border-radius: 50%; }
+
+/* faint dotted field, lifted from the reference's top-right corner */
+.dots {
+  position: absolute; z-index: 1; opacity: .5;
+  background-image: radial-gradient(currentColor 1.6px, transparent 1.7px);
+  background-size: 15px 15px;
+  color: var(--lime);
+}
+
+/* --------------------------------------------------------------------------
+   Atmosphere
+   -------------------------------------------------------------------------- */
+.glow {
+  position: absolute; z-index: 1; pointer-events: none; border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%,
+    rgba(143,208,14,.34) 0%, rgba(18,161,101,.16) 40%, transparent 72%);
+  filter: blur(4px);
+}
+.vig {
+  position: absolute; inset: 0; z-index: 8; pointer-events: none;
+  background: radial-gradient(120% 100% at 50% 40%, transparent 58%, rgba(2,26,28,.20) 100%);
+}
+.grain {
+  position: absolute; inset: 0; z-index: 9; pointer-events: none;
+  opacity: .10; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   Logo lockup — hydrated from assets.js
+   -------------------------------------------------------------------------- */
+.lg { position: relative; z-index: 5; display: block; height: var(--h, 62px); }
+.lg svg { height: 100%; width: auto; display: block; }
+
+/* --------------------------------------------------------------------------
+   Type
+   -------------------------------------------------------------------------- */
+.eyebrow {
+  font-size: 15px; font-weight: 700; letter-spacing: .3em;
+  text-transform: uppercase; color: var(--lime-lo);
+}
+.eyebrow.on-dark { color: var(--lime-hi); }
+
+.d { font-weight: 900; letter-spacing: -.03em; line-height: .94; text-transform: uppercase; }
+.d1 { font-size: 88px; }
+.d2 { font-size: 68px; }
+.d3 { font-size: 54px; }
+.d4 { font-size: 42px; }
+.d5 { font-size: 34px; }
+
+.lime  { color: var(--lime-lo); }
+.lime-hi { color: var(--lime-hi); }
+.white { color: #fff; }
+
+.lede { font-size: 21px; font-weight: 500; line-height: 1.5; color: var(--slate); }
+.lede.on-dark { color: rgba(255,255,255,.80); }
+
+/* "Premium Gadgets | Best Quality | Best Price" */
+.pipe { font-size: 21px; font-weight: 600; color: var(--slate); }
+.pipe span { color: var(--line); margin: 0 10px; }
+.pipe.on-dark { color: rgba(255,255,255,.82); }
+.pipe.on-dark span { color: rgba(255,255,255,.34); }
+
+.script {
+  font-family: 'Segoe Script', 'Brush Script MT', cursive;
+  font-size: 46px; font-weight: 600; color: var(--lime-hi);
+  letter-spacing: .01em;
+}
+
+/* --------------------------------------------------------------------------
+   CTA — lime pill with a circled chevron, per the reference
+   -------------------------------------------------------------------------- */
+.cta {
+  position: relative; z-index: 5;
+  display: inline-flex; align-items: center; gap: 18px;
+  padding: 15px 15px 15px 30px;
+  border-radius: 999px;
+  background: var(--ramp-lime); color: #fff;
+  font-size: 20px; font-weight: 800; letter-spacing: .12em;
+  text-transform: uppercase; white-space: nowrap;
+  box-shadow: 0 16px 34px -14px rgba(90,150,10,.75);
+}
+.cta .knob {
+  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(255,255,255,.22);
+}
+.cta .chev {
+  display: block; width: 9px; height: 9px; margin-left: -3px;
+  border-right: 3px solid #fff; border-top: 3px solid #fff;
+  transform: rotate(45deg);
+}
+.cta .cart { width: 22px; height: 22px; fill: none; stroke: #fff; stroke-width: 2.4;
+             stroke-linecap: round; stroke-linejoin: round; }
+
+/* white pill, for use on teal */
+.cta-w { background: #fff; color: var(--teal-deep); box-shadow: 0 16px 34px -16px rgba(0,0,0,.55); }
+.cta-w .knob { background: var(--ramp-lime); }
+.cta-w .cart { stroke: var(--teal-deep); }
+
+/* --------------------------------------------------------------------------
+   Trust row — outlined circular icons, exactly as the reference
+   -------------------------------------------------------------------------- */
+.trust { position: relative; z-index: 5; display: flex; align-items: center; gap: 34px; }
+.trust.tight { gap: 24px; }
+.t {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 15px; line-height: 1.25; color: var(--navy);
+}
+.t b { display: block; font-size: 17px; font-weight: 800; letter-spacing: -.01em; white-space: nowrap; }
+.t span { display: block; font-size: 14px; font-weight: 500; color: var(--slate); white-space: nowrap; }
+.t .ico { flex: none; width: 34px; height: 34px; fill: none;
+          stroke: var(--emerald); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.t.on-dark { color: #fff; }
+.t.on-dark span { color: rgba(255,255,255,.72); }
+.t.on-dark .ico { stroke: #fff; }
+
+/* stacked variant used along the foot of the wide banners */
+.t.stack { flex-direction: column; align-items: flex-start; gap: 8px; text-align: left; }
+
+/* vertical rule between trust items */
+.t-div { width: 1px; align-self: stretch; background: var(--line); }
+.t-div.on-dark { background: var(--line-dark); }
+
+/* --------------------------------------------------------------------------
+   Offer furniture
+   -------------------------------------------------------------------------- */
+/* boxed "BEST DEALS" badge with a lime banderole across it */
+.deal {
+  position: relative; z-index: 5;
+  padding: 22px 34px 30px;
+  border: 3px solid var(--lime-hi); border-radius: 10px;
+  text-align: center; color: #fff;
+}
+.deal .l1 { font-size: 46px; font-weight: 900; letter-spacing: -.02em; line-height: .92; }
+.deal .l2 { font-size: 34px; font-weight: 500; letter-spacing: .02em; line-height: 1; }
+.deal .band {
+  position: absolute; left: -22px; right: -22px; bottom: -14px;
+  padding: 9px 0; background: var(--ramp-lime); text-align: center;
+  font-size: 22px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+  box-shadow: 0 10px 24px -10px rgba(0,0,0,.5);
+}
+
+/* big "UP TO 30% OFF" stack */
+.off { position: relative; z-index: 5; text-align: center; line-height: 1; }
+.off .up  { font-size: 24px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; }
+.off .pct { font-size: 96px; font-weight: 900; letter-spacing: -.05em; }
+.off .lbl { font-size: 34px; font-weight: 800; letter-spacing: .1em; }
+
+/* hexagon discount seal, as on reference row 3 */
+.seal {
+  position: relative; z-index: 5;
+  display: grid; place-items: center; text-align: center;
+  width: 210px; height: 210px; color: #fff;
+  background: var(--ramp-lime);
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  box-shadow: 0 22px 44px -18px rgba(60,110,10,.7);
+}
+.seal .up  { font-size: 19px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.seal .pct { font-size: 74px; font-weight: 900; letter-spacing: -.05em; line-height: .9; }
+.seal .lbl { font-size: 24px; font-weight: 800; letter-spacing: .1em; }
+
+/* angled price flag */
+/* Angled price flag. The inner span is skewed back to sit upright, which
+   pushes its right edge out past the skewed plate — hence the extra right
+   padding, without which long labels clip on the trailing corner. */
+.flag {
+  position: relative; z-index: 5; display: inline-block;
+  padding: 14px 54px 14px 34px;
+  background: var(--ramp-lime); transform: skewX(var(--skew));
+}
+.flag > span { display: block; transform: skewX(37.87deg);
+  font-size: 26px; font-weight: 900; letter-spacing: -.01em; color: #fff; text-transform: uppercase; }
+
+.price { display: flex; align-items: baseline; gap: 16px; }
+.price-now { font-size: 62px; font-weight: 900; letter-spacing: -.04em; line-height: 1; color: var(--lime-hi); }
+.price-was { font-size: 28px; font-weight: 600; color: rgba(255,255,255,.55);
+             text-decoration: line-through; text-decoration-thickness: 2.5px; }
+
+/* pill chip */
+.chip {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 20px; border-radius: 999px;
+  border: 1.6px solid var(--line); background: #fff;
+  font-size: 14px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--navy);
+  white-space: nowrap;
+}
+.chip.on-dark { border-color: var(--line-dark); background: rgba(255,255,255,.08); color: #fff; }
+.chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime-hi); }
+
+/* --------------------------------------------------------------------------
+   Product stage
+   .pslot is hydrated by assets.js. Drop a cutout at products/<name>.png and
+   swap the div for <img> — the stage geometry does not change.
+   -------------------------------------------------------------------------- */
+.stage { position: absolute; z-index: 4; display: grid; place-items: center; }
+.pslot { position: relative; z-index: 2; width: 100%; height: 100%;
+         display: grid; place-items: center; }
+.pslot svg, .pslot img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 30px 34px rgba(6,32,34,.34));
+}
+/* elliptical contact shadow so the product sits on a surface */
+.floor {
+  position: absolute; left: 50%; bottom: 2%; z-index: 1;
+  width: 74%; height: 30px; transform: translateX(-50%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(4,26,28,.42) 0%, transparent 72%);
+  filter: blur(7px);
+}
+
+/* photo tile with angled edges — reference row 2 */
+.tile { position: absolute; z-index: 2; overflow: hidden; background: var(--paper-2);
+        transform: skewX(var(--skew)); }
+.tile > .in { position: absolute; inset: 0; transform: skewX(37.87deg); display: grid; place-items: center; }
+
+/* --------------------------------------------------------------------------
+   Utility
+   -------------------------------------------------------------------------- */
+.stack-v { display: flex; flex-direction: column; }
+.row     { display: flex; align-items: center; }
+
+/* Centre a row across the whole canvas.
+   NOT `left:50% + translateX(-50%)`: an absolutely positioned box with a left
+   offset and no right offset is capped at (canvas − left), i.e. half the
+   width, which silently wraps chip and trust rows onto two lines. Pinning
+   both edges and centring the flex line avoids that ceiling entirely. */
+.mid { left: 0; right: 0; justify-content: center; }
+.abs     { position: absolute; z-index: 5; }
+.hair    { height: 1.5px; background: var(--line); border: 0; }
+.hair.on-dark { background: var(--line-dark); }
+.rule-lime { height: 5px; width: 92px; border-radius: 3px; background: var(--ramp-lime); border: 0; }
+.url { font-size: 17px; font-weight: 600; letter-spacing: .04em; color: rgba(255,255,255,.85); }

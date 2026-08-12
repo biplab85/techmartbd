@@ -1,0 +1,212 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - img "TechCartBD" [ref=e3]:
+      - generic [ref=e8]: TECHCARTBD
+      - generic [ref=e9]: techcartbd.com
+    - generic [ref=e10]:
+      - generic [ref=e11]: Banner Gallery
+      - text: 26 exports · click any banner to open full size
+  - main [ref=e12]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - heading "Feed posts" [level=2] [ref=e15]
+        - paragraph [ref=e16]: 1200×630 — feed and link shares · 10 banners
+      - generic [ref=e17]:
+        - link "Smart Tech Smart Tech 1200x630" [ref=e18] [cursor=pointer]:
+          - /url: out/fb-01-smart-tech-1200x630.png
+          - img "Smart Tech" [ref=e20]
+          - generic [ref=e21]:
+            - generic [ref=e22]: Smart Tech
+            - generic [ref=e23]: 1200x630
+        - link "Upgrade Lifestyle Upgrade Lifestyle 1200x630" [ref=e24] [cursor=pointer]:
+          - /url: out/fb-02-upgrade-lifestyle-1200x630.png
+          - img "Upgrade Lifestyle" [ref=e26]
+          - generic [ref=e27]:
+            - generic [ref=e28]: Upgrade Lifestyle
+            - generic [ref=e29]: 1200x630
+        - link "Trusted Gadget Partner Trusted Gadget Partner 1200x630" [ref=e30] [cursor=pointer]:
+          - /url: out/fb-03-trusted-gadget-partner-1200x630.png
+          - img "Trusted Gadget Partner" [ref=e32]
+          - generic [ref=e33]:
+            - generic [ref=e34]: Trusted Gadget Partner
+            - generic [ref=e35]: 1200x630
+        - link "Simplifies Life Simplifies Life 1200x630" [ref=e36] [cursor=pointer]:
+          - /url: out/fb-04-simplifies-life-1200x630.png
+          - img "Simplifies Life" [ref=e38]
+          - generic [ref=e39]:
+            - generic [ref=e40]: Simplifies Life
+            - generic [ref=e41]: 1200x630
+        - link "Mega Gadget Sale Mega Gadget Sale 1200x630" [ref=e42] [cursor=pointer]:
+          - /url: out/fb-05-mega-gadget-sale-1200x630.png
+          - img "Mega Gadget Sale" [ref=e44]
+          - generic [ref=e45]:
+            - generic [ref=e46]: Mega Gadget Sale
+            - generic [ref=e47]: 1200x630
+        - link "Free Delivery Free Delivery 1200x630" [ref=e48] [cursor=pointer]:
+          - /url: out/fb-06-free-delivery-1200x630.png
+          - generic [ref=e49]:
+            - img "Free Delivery"
+          - generic [ref=e50]:
+            - generic [ref=e51]: Free Delivery
+            - generic [ref=e52]: 1200x630
+        - link "Warranty Trust Warranty Trust 1200x630" [ref=e53] [cursor=pointer]:
+          - /url: out/fb-07-warranty-trust-1200x630.png
+          - generic [ref=e54]:
+            - img "Warranty Trust"
+          - generic [ref=e55]:
+            - generic [ref=e56]: Warranty Trust
+            - generic [ref=e57]: 1200x630
+        - link "Cash On Delivery Cash On Delivery 1200x630" [ref=e58] [cursor=pointer]:
+          - /url: out/fb-08-cash-on-delivery-1200x630.png
+          - generic [ref=e59]:
+            - img "Cash On Delivery"
+          - generic [ref=e60]:
+            - generic [ref=e61]: Cash On Delivery
+            - generic [ref=e62]: 1200x630
+        - link "Flash Sale Flash Sale 1200x630" [ref=e63] [cursor=pointer]:
+          - /url: out/fb-09-flash-sale-1200x630.png
+          - generic [ref=e64]:
+            - img "Flash Sale"
+          - generic [ref=e65]:
+            - generic [ref=e66]: Flash Sale
+            - generic [ref=e67]: 1200x630
+        - link "New Arrival New Arrival 1200x630" [ref=e68] [cursor=pointer]:
+          - /url: out/fb-10-new-arrival-1200x630.png
+          - generic [ref=e69]:
+            - img "New Arrival"
+          - generic [ref=e70]:
+            - generic [ref=e71]: New Arrival
+            - generic [ref=e72]: 1200x630
+    - generic [ref=e73]:
+      - generic [ref=e74]:
+        - heading "Square posts" [level=2] [ref=e75]
+        - paragraph [ref=e76]: 1080×1080 — feed and carousel · 7 banners
+      - generic [ref=e77]:
+        - link "Earbuds Spotlight Earbuds Spotlight 1080x1080" [ref=e78] [cursor=pointer]:
+          - /url: out/02-earbuds-spotlight-1080x1080.png
+          - generic [ref=e79]:
+            - img "Earbuds Spotlight"
+          - generic [ref=e80]:
+            - generic [ref=e81]: Earbuds Spotlight
+            - generic [ref=e82]: 1080x1080
+        - link "Home Upgrade Home Upgrade 1080x1080" [ref=e83] [cursor=pointer]:
+          - /url: out/05-home-upgrade-1080x1080.png
+          - generic [ref=e84]:
+            - img "Home Upgrade"
+          - generic [ref=e85]:
+            - generic [ref=e86]: Home Upgrade
+            - generic [ref=e87]: 1080x1080
+        - link "Smartwatch Spotlight Smartwatch Spotlight 1080x1080" [ref=e88] [cursor=pointer]:
+          - /url: out/fb-11-smartwatch-spotlight-1080x1080.png
+          - generic [ref=e89]:
+            - img "Smartwatch Spotlight"
+          - generic [ref=e90]:
+            - generic [ref=e91]: Smartwatch Spotlight
+            - generic [ref=e92]: 1080x1080
+        - link "Blender Spotlight Blender Spotlight 1080x1080" [ref=e93] [cursor=pointer]:
+          - /url: out/fb-12-blender-spotlight-1080x1080.png
+          - generic [ref=e94]:
+            - img "Blender Spotlight"
+          - generic [ref=e95]:
+            - generic [ref=e96]: Blender Spotlight
+            - generic [ref=e97]: 1080x1080
+        - link "Kitchen Combo Kitchen Combo 1080x1080" [ref=e98] [cursor=pointer]:
+          - /url: out/fb-13-kitchen-combo-1080x1080.png
+          - generic [ref=e99]:
+            - img "Kitchen Combo"
+          - generic [ref=e100]:
+            - generic [ref=e101]: Kitchen Combo
+            - generic [ref=e102]: 1080x1080
+        - link "Usb Fan Usb Fan 1080x1080" [ref=e103] [cursor=pointer]:
+          - /url: out/fb-14-usb-fan-1080x1080.png
+          - generic [ref=e104]:
+            - img "Usb Fan"
+          - generic [ref=e105]:
+            - generic [ref=e106]: Usb Fan
+            - generic [ref=e107]: 1080x1080
+        - link "Audio Spotlight Audio Spotlight 1080x1080" [ref=e108] [cursor=pointer]:
+          - /url: out/fb-15-audio-spotlight-1080x1080.png
+          - generic [ref=e109]:
+            - img "Audio Spotlight"
+          - generic [ref=e110]:
+            - generic [ref=e111]: Audio Spotlight
+            - generic [ref=e112]: 1080x1080
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - heading "Page covers" [level=2] [ref=e115]
+        - paragraph [ref=e116]: 1640×856 — page cover photo · 3 banners
+      - generic [ref=e117]:
+        - link "Cover Smart Tech Cover Smart Tech 1640x856" [ref=e118] [cursor=pointer]:
+          - /url: out/fb-16-cover-smart-tech-1640x856.png
+          - generic [ref=e119]:
+            - img "Cover Smart Tech"
+          - generic [ref=e120]:
+            - generic [ref=e121]: Cover Smart Tech
+            - generic [ref=e122]: 1640x856
+        - link "Cover Trusted Partner Cover Trusted Partner 1640x856" [ref=e123] [cursor=pointer]:
+          - /url: out/fb-17-cover-trusted-partner-1640x856.png
+          - generic [ref=e124]:
+            - img "Cover Trusted Partner"
+          - generic [ref=e125]:
+            - generic [ref=e126]: Cover Trusted Partner
+            - generic [ref=e127]: 1640x856
+        - link "Cover Upgrade Lifestyle Cover Upgrade Lifestyle 1640x856" [ref=e128] [cursor=pointer]:
+          - /url: out/fb-18-cover-upgrade-lifestyle-1640x856.png
+          - generic [ref=e129]:
+            - img "Cover Upgrade Lifestyle"
+          - generic [ref=e130]:
+            - generic [ref=e131]: Cover Upgrade Lifestyle
+            - generic [ref=e132]: 1640x856
+    - generic [ref=e133]:
+      - generic [ref=e134]:
+        - heading "Stories" [level=2] [ref=e135]
+        - paragraph [ref=e136]: 1080×1920 — story and reel · 3 banners
+      - generic [ref=e137]:
+        - link "Flash Deal Story Flash Deal Story 1080x1920" [ref=e138] [cursor=pointer]:
+          - /url: out/04-flash-deal-story-1080x1920.png
+          - generic [ref=e139]:
+            - img "Flash Deal Story"
+          - generic [ref=e140]:
+            - generic [ref=e141]: Flash Deal Story
+            - generic [ref=e142]: 1080x1920
+        - link "Story Flash Deal Story Flash Deal 1080x1920" [ref=e143] [cursor=pointer]:
+          - /url: out/fb-19-story-flash-deal-1080x1920.png
+          - generic [ref=e144]:
+            - img "Story Flash Deal"
+          - generic [ref=e145]:
+            - generic [ref=e146]: Story Flash Deal
+            - generic [ref=e147]: 1080x1920
+        - link "Story New Arrival Story New Arrival 1080x1920" [ref=e148] [cursor=pointer]:
+          - /url: out/fb-20-story-new-arrival-1080x1920.png
+          - generic [ref=e149]:
+            - img "Story New Arrival"
+          - generic [ref=e150]:
+            - generic [ref=e151]: Story New Arrival
+            - generic [ref=e152]: 1080x1920
+    - generic [ref=e153]:
+      - generic [ref=e154]:
+        - heading "Earlier set" [level=2] [ref=e155]
+        - paragraph [ref=e156]: previous dark-theme banners · 3 banners
+      - generic [ref=e157]:
+        - link "Gadget Fest Gadget Fest 1200x628" [ref=e158] [cursor=pointer]:
+          - /url: out/01-gadget-fest-1200x628.png
+          - generic [ref=e159]:
+            - img "Gadget Fest"
+          - generic [ref=e160]:
+            - generic [ref=e161]: Gadget Fest
+            - generic [ref=e162]: 1200x628
+        - link "Page Cover Page Cover 1640x624" [ref=e163] [cursor=pointer]:
+          - /url: out/03-page-cover-1640x624.png
+          - generic [ref=e164]:
+            - img "Page Cover"
+          - generic [ref=e165]:
+            - generic [ref=e166]: Page Cover
+            - generic [ref=e167]: 1640x624
+        - link "Free Delivery Trust Free Delivery Trust 1200x628" [ref=e168] [cursor=pointer]:
+          - /url: out/06-free-delivery-trust-1200x628.png
+          - generic [ref=e169]:
+            - img "Free Delivery Trust"
+          - generic [ref=e170]:
+            - generic [ref=e171]: Free Delivery Trust
+            - generic [ref=e172]: 1200x628
+  - contentinfo [ref=e173]: TechCartBD · generated by make-gallery.js · re-run after adding banners

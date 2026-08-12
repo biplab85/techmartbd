@@ -1,0 +1,17 @@
+{
+  "name": "banners",
+  "version": "1.0.0",
+  "description": "",
+  "main": "assets.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@fancyapps/ui": "^6.1.14",
+    "playwright-core": "^1.56.1"
+  }
+}

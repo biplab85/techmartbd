@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 72" width="236" height="72"
+     role="img" aria-labelledby="tcb-title">
+  <title id="tcb-title">TechCartBD</title>
+  <!-- Reversed / knockout lockup for dark canvases.
+       Mark keeps its gradients (they hold on dark); TECH and BD flip to paper white. -->
+  <defs>
+    <linearGradient id="r-bar" gradientUnits="userSpaceOnUse" x1="11" y1="21" x2="46.9" y2="15">
+      <stop offset="0" stop-color="#109450"/><stop offset="0.08" stop-color="#17924E"/>
+      <stop offset="0.21" stop-color="#269146"/><stop offset="0.35" stop-color="#3D933E"/>
+      <stop offset="0.48" stop-color="#609C26"/><stop offset="0.62" stop-color="#73AD15"/>
+      <stop offset="0.75" stop-color="#83BA0E"/><stop offset="1" stop-color="#86BD08"/>
+    </linearGradient>
+    <linearGradient id="r-stem" gradientUnits="userSpaceOnUse" x1="26.5" y1="24" x2="26.5" y2="58.8">
+      <stop offset="0" stop-color="#0A9364"/><stop offset="0.2" stop-color="#089566"/>
+      <stop offset="0.4" stop-color="#068868"/><stop offset="0.6" stop-color="#057E74"/>
+      <stop offset="0.8" stop-color="#05767F"/><stop offset="1" stop-color="#047285"/>
+    </linearGradient>
+    <linearGradient id="r-arm" gradientUnits="userSpaceOnUse" x1="56" y1="13.4" x2="56" y2="24">
+      <stop offset="0" stop-color="#12A165"/><stop offset="1" stop-color="#0E9159"/>
+    </linearGradient>
+    <linearGradient id="r-hook" gradientUnits="userSpaceOnUse" x1="38" y1="25.2" x2="70.8" y2="58.8">
+      <stop offset="0" stop-color="#8CC80B"/><stop offset="0.18" stop-color="#84C412"/>
+      <stop offset="0.28" stop-color="#5AA82B"/><stop offset="0.37" stop-color="#329B49"/>
+      <stop offset="0.48" stop-color="#04886C"/><stop offset="0.75" stop-color="#03737E"/>
+      <stop offset="1" stop-color="#027183"/>
+    </linearGradient>
+  </defs>
+
+  <g id="tcb-mark-rev">
+    <path fill="url(#r-bar)"  d="M11 13.4H46.86L38.61 24H11Z"/>
+    <path fill="url(#r-stem)" d="M21 24h11v34.8H21z"/>
+    <path fill="url(#r-arm)"  d="M49.86 13.4H71.86L63.61 24H41.61Z"/>
+    <path fill="url(#r-hook)" d="M38 25.2H48.5V44.7A3.6 3.6 0 0 0 52.1 48.3H70.8L63.8 58.8H52.1A14.1 14.1 0 0 1 38 44.7Z"/>
+  </g>
+
+  <g id="tcb-type-rev">
+    <text x="84" y="39.5"
+          font-family="Montserrat, Poppins, Gilroy, 'Segoe UI', Arial, sans-serif"
+          font-size="21.4" font-weight="700" letter-spacing="-0.3"
+          textLength="129.5" lengthAdjust="spacing">
+      <tspan fill="#F3F8EE">TECH</tspan><tspan fill="#8FD00E">CART</tspan><tspan fill="#F3F8EE">BD</tspan>
+    </text>
+    <text x="85" y="57.5"
+          font-family="Montserrat, Poppins, 'Segoe UI', Arial, sans-serif"
+          font-size="11.4" font-weight="500" letter-spacing="0.15" fill="#8FA8A3"
+          textLength="83.5" lengthAdjust="spacing">techcartbd.com</text>
+  </g>
+</svg>

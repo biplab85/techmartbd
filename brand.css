@@ -1,0 +1,321 @@
+/* ==========================================================================
+   TECHCARTBD — Facebook banner system
+   Every token below is derived from logo.svg. Retheme here, not in the banners.
+
+   THE HOUSE ANGLE
+   The logo's terminals are all cut 7 across : 9 down (37.87deg). That single
+   angle is the structural motif of this whole system: colour planes, photo
+   masks, price flags and seams all use it, so the banners read as the logo's
+   own geometry rather than generic ad furniture.
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat-latin-var.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  /* --- straight from the logo --- */
+  --lime:      #7AB80C;
+  --emerald:   #0F8654;
+  --teal:      #02626C;
+
+  /* --- extended for dark canvases (same hues, lifted for contrast) --- */
+  --lime-hi:   #8FD00E;
+  --lime-dim:  #5E8F09;
+  --emerald-hi:#12A165;
+  --teal-hi:   #047285;
+
+  /* --- canvas --- */
+  --ink:       #04191B;
+  --ink-2:     #072528;
+  --ink-3:     #0B3336;
+  --paper:     #F3F8EE;
+  --muted:     #8FA8A3;
+  --hairline:  rgba(243,248,238,.14);
+
+  /* --- the logo's own ramp --- */
+  --ramp: linear-gradient(103deg, var(--lime) 0%, var(--emerald) 54%, var(--teal) 100%);
+  --ramp-hot: linear-gradient(103deg, var(--lime-hi) 0%, var(--emerald-hi) 58%, var(--teal-hi) 100%);
+  /* For display type on dark: same hues, but stops short of teal so the tail
+     of a headline does not sink into the background. */
+  --ramp-punch: linear-gradient(100deg, #9BDC10 0%, #6DC012 46%, #14A263 100%);
+
+  --angle: 37.87deg;   /* 7 : 9 */
+  --skew:  -37.87deg;
+
+  --pad: 64px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #0a0d0e;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+/* --------------------------------------------------------------------------
+   Canvas
+   -------------------------------------------------------------------------- */
+.banner {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--paper);
+  isolation: isolate;
+}
+.banner > * { position: relative; z-index: 2; }
+
+/* Facebook placement sizes */
+.s-link    { width: 1200px; height: 628px;  }  /* feed link / landscape ad */
+.s-square  { width: 1080px; height: 1080px; }  /* feed + carousel */
+.s-cover   { width: 1640px; height: 624px;  }  /* page cover photo */
+.s-story   { width: 1080px; height: 1920px; }  /* story / reel */
+
+/* --------------------------------------------------------------------------
+   Atmosphere — depth without clutter
+   -------------------------------------------------------------------------- */
+.atmos { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+/* deep base wash so the canvas is never a flat fill */
+.atmos::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(120% 90% at 78% 12%, rgba(18,161,101,.30) 0%, transparent 58%),
+    radial-gradient(90%  80% at 12% 92%, rgba(2,98,108,.42)  0%, transparent 62%),
+    linear-gradient(168deg, var(--ink-2) 0%, var(--ink) 58%, #02100F 100%);
+}
+
+/* diagonal hairline field on the house angle */
+.atmos::after {
+  content: '';
+  position: absolute; inset: -20%;
+  background: repeating-linear-gradient(
+    var(--angle),
+    rgba(243,248,238,.055) 0px, rgba(243,248,238,.055) 1px,
+    transparent 1px, transparent 26px
+  );
+  -webkit-mask-image: radial-gradient(80% 70% at 50% 45%, #000 20%, transparent 78%);
+          mask-image: radial-gradient(80% 70% at 50% 45%, #000 20%, transparent 78%);
+}
+
+/* film grain — kills the plasticky flat-vector look */
+.grain {
+  position: absolute; inset: 0; z-index: 6; pointer-events: none;
+  opacity: .16; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* corner darkening so the composition holds together */
+.vignette {
+  position: absolute; inset: 0; z-index: 5; pointer-events: none;
+  background: radial-gradient(115% 95% at 50% 42%, transparent 52%, rgba(0,10,10,.62) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   Angled planes — the house angle as a colour block
+   -------------------------------------------------------------------------- */
+.plane {
+  position: absolute; z-index: 1;
+  transform: skewX(var(--skew));
+  transform-origin: top left;
+}
+.plane-ramp   { background: var(--ramp); }
+.plane-ink    { background: linear-gradient(160deg, var(--ink-3), var(--ink-2)); }
+.plane-lime   { background: var(--lime); }
+
+/* the logo's signature 3px knockout seam, scaled up */
+.seam {
+  position: absolute; z-index: 4;
+  background: var(--ink);
+  transform: skewX(var(--skew));
+  transform-origin: top left;
+}
+
+/* --------------------------------------------------------------------------
+   Logo lockup
+   NOTE: the logo is inlined as <svg> in every banner, never <img src>.
+   An <img>-loaded SVG is an isolated document and cannot see this file's
+   @font-face, so the wordmark would silently fall back to a system font.
+   -------------------------------------------------------------------------- */
+.logo { display: block; height: 56px; width: auto; }
+.logo text { font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; }
+.logo-lg { height: 92px; }
+.logo-sm { height: 40px; }
+
+/* --------------------------------------------------------------------------
+   Pedestal — a slab on the house angle that the product stands on
+   -------------------------------------------------------------------------- */
+.pedestal {
+  position: absolute; z-index: 1;
+  transform: skewX(var(--skew));
+  background: var(--ramp);
+  opacity: .5;
+  filter: blur(3px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.25) 62%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,.25) 62%, transparent 100%);
+}
+/* bright leading edge so it reads as a lit surface, not a flat slab */
+.pedestal::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+  background: var(--lime-hi); opacity: .9;
+}
+
+/* --------------------------------------------------------------------------
+   Type scale — Montserrat, tight tracking, all-caps display like the wordmark
+   -------------------------------------------------------------------------- */
+.eyebrow {
+  font-size: 17px; font-weight: 700; letter-spacing: .34em;
+  text-transform: uppercase; color: var(--lime-hi);
+}
+.eyebrow-dim { color: var(--muted); }
+
+.display {
+  font-weight: 900; letter-spacing: -.035em; line-height: .88;
+  text-transform: uppercase;
+}
+.d-1 { font-size: 132px; }
+.d-2 { font-size: 96px;  }
+.d-3 { font-size: 72px;  }
+.d-4 { font-size: 54px;  }
+
+.lede {
+  font-size: 22px; font-weight: 500; line-height: 1.45;
+  color: rgba(243,248,238,.80); letter-spacing: -.005em;
+}
+.micro {
+  font-size: 14px; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+.on-lime { color: var(--lime-hi); }
+.on-grad {
+  background: var(--ramp-punch);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   CTA
+   -------------------------------------------------------------------------- */
+.cta {
+  display: inline-flex; align-items: center; gap: 16px;
+  padding: 20px 38px;
+  background: var(--lime-hi); color: #06210A;
+  font-size: 21px; font-weight: 800; letter-spacing: .13em;
+  text-transform: uppercase; white-space: nowrap;
+  box-shadow: 0 18px 44px -14px rgba(143,208,14,.62);
+}
+.cta .chev { display: block; width: 13px; height: 13px;
+  border-right: 3.4px solid #06210A; border-top: 3.4px solid #06210A;
+  transform: rotate(45deg); }
+
+.cta-ghost {
+  background: transparent; color: var(--paper);
+  border: 2px solid var(--hairline); box-shadow: none;
+}
+.cta-ghost .chev { border-color: var(--lime-hi); }
+
+/* --------------------------------------------------------------------------
+   Chips, flags, price
+   -------------------------------------------------------------------------- */
+.chip {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 20px;
+  border: 1.5px solid var(--hairline);
+  background: rgba(243,248,238,.045);
+  font-size: 14px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: rgba(243,248,238,.86);
+}
+.chip .dot { width: 7px; height: 7px; background: var(--lime-hi); }
+
+/* angled discount flag — the logo's terminal cut, blown up */
+.flag {
+  position: relative; display: inline-block;
+  padding: 16px 44px 16px 34px;
+  background: var(--ramp);
+  transform: skewX(var(--skew));
+}
+.flag > span { display: block; transform: skewX(37.87deg); }
+.flag-txt { font-size: 30px; font-weight: 900; letter-spacing: -.02em; text-transform: uppercase; }
+
+.price { display: flex; align-items: baseline; gap: 18px; }
+.price-now {
+  font-size: 66px; font-weight: 900; letter-spacing: -.04em;
+  color: var(--lime-hi); line-height: 1;
+}
+.price-was {
+  font-size: 30px; font-weight: 600; color: var(--muted);
+  text-decoration: line-through; text-decoration-thickness: 2.5px;
+}
+.tk { font-size: .62em; font-weight: 700; margin-right: .1em;
+  font-family: 'Montserrat', 'Nirmala UI', 'Segoe UI', sans-serif; }
+
+/* --------------------------------------------------------------------------
+   Product stage — where YOUR photograph goes
+   .product-slot is the drop zone. Replace the inline <svg> placeholder with
+   <img src="your-shot.png"> and nothing else needs to change.
+   -------------------------------------------------------------------------- */
+.stage { position: absolute; display: grid; place-items: center; }
+
+.stage .halo {
+  position: absolute; inset: -8%;
+  background: radial-gradient(50% 50% at 50% 46%,
+    rgba(143,208,14,.32) 0%, rgba(18,161,101,.18) 34%, transparent 70%);
+  filter: blur(6px);
+}
+.stage .contact {           /* grounding shadow under the product */
+  position: absolute; left: 50%; bottom: 8%;
+  width: 62%; height: 26px; transform: translateX(-50%);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,.66) 0%, transparent 72%);
+  filter: blur(9px);
+}
+.product-slot {
+  position: relative;
+  width: 100%; height: 100%;
+  display: grid; place-items: center;
+}
+.product-slot > img,
+.product-slot > svg {
+  max-width: 100%; max-height: 100%;
+  width: auto; height: auto;
+  display: block;
+  filter: drop-shadow(0 34px 48px rgba(0,0,0,.55));
+}
+
+/* Marks the placeholder art so it is obvious what has to be swapped.
+   Delete this rule once real photography is in. */
+.is-placeholder::after {
+  content: 'PLACEHOLDER ART';
+  position: absolute; left: 50%; bottom: -22px; transform: translateX(-50%);
+  font-size: 9px; font-weight: 700; letter-spacing: .2em;
+  color: rgba(243,248,238,.26); white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   USP strip
+   -------------------------------------------------------------------------- */
+.usp-row { display: flex; }
+.usp {
+  flex: 1; display: flex; flex-direction: column; gap: 14px;
+  padding: 0 34px; border-left: 1.5px solid var(--hairline);
+}
+.usp:first-child { border-left: 0; padding-left: 0; }
+.usp .ico { width: 46px; height: 46px; stroke: var(--lime-hi); fill: none;
+  stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.usp h4 { font-size: 21px; font-weight: 800; letter-spacing: -.015em; text-transform: uppercase; }
+.usp p  { font-size: 15px; font-weight: 500; color: var(--muted); line-height: 1.45; }
+
+/* --------------------------------------------------------------------------
+   Utility
+   -------------------------------------------------------------------------- */
+.stack   { display: flex; flex-direction: column; }
+.row     { display: flex; align-items: center; }
+.hair    { height: 1.5px; background: var(--hairline); border: 0; }
+.hair-lime { height: 4px; background: var(--ramp); border: 0; }

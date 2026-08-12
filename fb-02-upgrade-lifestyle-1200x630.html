@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>02 · Upgrade Your Lifestyle · 1200×630</title>
+<link rel="stylesheet" href="fb.css">
+</head>
+<body>
+
+<!-- =========================================================================
+     02 — Feed post 1200×630. Reference row 2: a run of angled product tiles
+     separated by lime slivers, over a teal trust bar.
+     ========================================================================= -->
+<div class="b s-feed">
+
+  <!-- lime field behind the tiles; the 6px gaps between tiles expose it as
+       slivers running on the house angle -->
+  <div class="abs" style="left:360px;right:0;top:0;height:486px;background:var(--ramp-lime);z-index:1"></div>
+
+  <div class="tilerow">
+    <div class="tl" style="left:372px"><div class="glow" style="inset:12%"></div>
+      <div class="stage" style="inset:14% 12% 16%"><div class="pslot" data-p="watch"></div></div></div>
+    <div class="tl" style="left:580px"><div class="glow" style="inset:12%"></div>
+      <div class="stage" style="inset:10% 10% 12%"><div class="pslot" data-p="blender"></div></div></div>
+    <div class="tl" style="left:788px"><div class="glow" style="inset:12%"></div>
+      <div class="stage" style="inset:20% 8% 20%"><div class="pslot" data-p="cooker"></div></div></div>
+    <div class="tl" style="left:996px"><div class="glow" style="inset:12%"></div>
+      <div class="stage" style="inset:22% 6% 22%"><div class="pslot" data-p="headphone"></div></div></div>
+  </div>
+
+  <!-- ---------- copy column ---------- -->
+  <div class="lg" data-logo="dark" style="--h:60px;position:absolute;left:56px;top:52px"></div>
+
+  <div class="abs" style="left:56px;top:176px;width:300px">
+    <div class="d d3">UPGRADE</div>
+    <div class="d d3">YOUR</div>
+    <div class="d d3 lime" style="margin-top:4px">LIFESTYLE</div>
+    <hr class="rule-lime" style="margin:22px 0 18px">
+    <div class="lede" style="font-size:17px">
+      Smart gadgets, modern design,<br>made for your everyday life.
+    </div>
+  </div>
+
+  <!-- ---------- trust bar ---------- -->
+  <div class="abs" style="left:0;right:0;bottom:0;height:144px;background:var(--ramp-teal);z-index:4"></div>
+
+  <!-- Four trust items plus a CTA is a tight fit on a 1200 canvas, so this bar
+       runs at a smaller type size than the wide-format bars. -->
+  <div class="trust bar4 abs" style="left:52px;bottom:54px;gap:0;z-index:6">
+    <div class="t on-dark" style="padding-right:20px"><span class="ico-slot" data-i="check"></span>
+      <div><b>100% Original</b></div></div>
+    <div class="t-div on-dark" style="height:38px"></div>
+    <div class="t on-dark" style="padding:0 20px"><span class="ico-slot" data-i="medal"></span>
+      <div><b>Best Quality</b></div></div>
+    <div class="t-div on-dark" style="height:38px"></div>
+    <div class="t on-dark" style="padding:0 20px"><span class="ico-slot" data-i="shield"></span>
+      <div><b>1 Year Warranty</b></div></div>
+    <div class="t-div on-dark" style="height:38px"></div>
+    <div class="t on-dark" style="padding-left:20px"><span class="ico-slot" data-i="truck"></span>
+      <div><b>Fast Delivery</b></div></div>
+  </div>
+
+  <div class="cta cta-w abs" style="right:44px;bottom:46px;z-index:6;font-size:16px;padding:12px 12px 12px 24px">
+    Order Now <span class="knob" style="width:30px;height:30px"><i class="chev"></i></span>
+  </div>
+
+  <div class="vig"></div><div class="grain"></div>
+</div>
+
+<style>
+  /* Tiles: parallelograms on the house angle, all the same size, riding a
+     lime field. Clip-path rather than skew so the lean stays readable on a
+     486px-tall strip. */
+  .tilerow .tl {
+    position: absolute; top: 0; width: 202px; height: 486px; z-index: 2;
+    background: linear-gradient(168deg, #FFFFFF 0%, #EDF2EE 52%, #DFE7E1 100%);
+    clip-path: polygon(56px 0, 100% 0, calc(100% - 56px) 100%, 0 100%);
+  }
+  .tilerow .tl .stage { position: absolute; }
+
+  .bar4 .t b   { font-size: 15px; }
+  .bar4 .t .ico { width: 28px; height: 28px; }
+  .bar4 .t     { gap: 10px; }
+</style>
+
+<script src="assets.js"></script>
+</body>
+</html>

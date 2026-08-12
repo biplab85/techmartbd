@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechCartBD · Banner Gallery</title>
+<!-- Inline favicon: without one the browser requests /favicon.ico and logs a
+     404 on every load, which is noise in an otherwise clean console. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Crect width='72' height='72' rx='14' fill='%230A4A50'/%3E%3Cpath fill='%238FD00E' d='M14 18h30l-7 9H14Z'/%3E%3Cpath fill='%23F3F8EE' d='M22 27h9v29h-9z'/%3E%3Cpath fill='%2312A165' d='M46 18h14l-7 9H39Z'/%3E%3Cpath fill='%238FD00E' d='M36 28h9v17a3 3 0 0 0 3 3h12l-6 9H48a12 12 0 0 1-12-12Z'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/fancybox/fancybox.css">
+<style>
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-latin-var.woff2') format('woff2');
+    font-weight: 100 900; font-style: normal; font-display: swap;
+  }
+  :root {
+    --lime: #7AB80C; --lime-hi: #8FD00E; --teal: #0A4A50;
+    --navy: #12303B; --slate: #5A6E74; --line: #DFE6E1; --paper: #F1F5F1;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--navy);
+    font-family: 'Montserrat', 'Segoe UI', system-ui, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- header ---- */
+  header {
+    background: #fff; border-bottom: 1px solid var(--line);
+    padding: 30px 40px 26px;
+    display: flex; align-items: flex-end; gap: 26px; flex-wrap: wrap;
+  }
+  .mark { height: 56px; width: auto; display: block; }
+  header .tag {
+    padding-bottom: 4px; font-size: 14px; font-weight: 600; color: var(--slate);
+    border-left: 1px solid var(--line); padding-left: 26px;
+  }
+  header .tag b { display: block; font-size: 17px; font-weight: 800; color: var(--navy); }
+
+  /* ---- sections ---- */
+  main { padding: 40px; max-width: 1680px; margin: 0 auto; }
+  .sec + .sec { margin-top: 52px; }
+  .sec-h { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+  .sec-h h2 {
+    font-size: 20px; font-weight: 800; letter-spacing: -.01em; text-transform: uppercase;
+    padding-left: 14px; border-left: 5px solid var(--lime-hi); line-height: 1.1;
+  }
+  .sec-h p { font-size: 14px; font-weight: 500; color: var(--slate); }
+
+  /* ---- grid ---- */
+  .grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
+  .card { display: block; text-decoration: none; color: inherit; }
+  /* Fixed-ratio well with object-fit:contain, because one grid holds
+     1200x630, 1080x1080 and 1080x1920 art — cropping to fill would hide
+     the composition of exactly the tall ones worth checking. */
+  .shot {
+    display: grid; place-items: center; aspect-ratio: 16 / 10; overflow: hidden;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+  }
+  .shot img { max-width: 100%; max-height: 100%; display: block; }
+  .card:hover .shot {
+    border-color: var(--lime-hi); transform: translateY(-3px);
+    box-shadow: 0 16px 30px -18px rgba(10,60,50,.55);
+  }
+  .meta { display: flex; align-items: baseline; gap: 10px; padding: 11px 3px 0; }
+  .meta b { font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
+  .meta i {
+    margin-left: auto; font-style: normal; font-size: 12px; font-weight: 600;
+    letter-spacing: .06em; color: var(--slate);
+  }
+
+  footer {
+    padding: 30px 40px 50px; text-align: center;
+    font-size: 13px; font-weight: 500; color: var(--slate);
+  }
+
+  @media (max-width: 640px) {
+    header { padding: 22px 20px; } main { padding: 24px 20px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  
+<svg class="mark" viewBox="0 0 236 72" role="img" aria-label="TechCartBD">
+  <defs>
+    <linearGradient id="gbar" gradientUnits="userSpaceOnUse" x1="11" y1="21" x2="46.9" y2="15">
+      <stop offset="0" stop-color="#109450"/><stop offset=".21" stop-color="#269146"/>
+      <stop offset=".48" stop-color="#609C26"/><stop offset=".75" stop-color="#83BA0E"/>
+      <stop offset="1" stop-color="#86BD08"/></linearGradient>
+    <linearGradient id="gstem" gradientUnits="userSpaceOnUse" x1="26.5" y1="24" x2="26.5" y2="58.8">
+      <stop offset="0" stop-color="#067F57"/><stop offset=".6" stop-color="#046E65"/>
+      <stop offset="1" stop-color="#036474"/></linearGradient>
+    <linearGradient id="garm" gradientUnits="userSpaceOnUse" x1="56" y1="13.4" x2="56" y2="24">
+      <stop offset="0" stop-color="#10905A"/><stop offset="1" stop-color="#0C8150"/></linearGradient>
+    <linearGradient id="ghook" gradientUnits="userSpaceOnUse" x1="38" y1="25.2" x2="70.8" y2="58.8">
+      <stop offset="0" stop-color="#7FB80A"/><stop offset=".28" stop-color="#519827"/>
+      <stop offset=".48" stop-color="#03795F"/><stop offset="1" stop-color="#016270"/></linearGradient>
+  </defs>
+  <path fill="url(#gbar)" d="M11 13.4H46.86L38.61 24H11Z"/>
+  <path fill="url(#gstem)" d="M21 24h11v34.8H21z"/>
+  <path fill="url(#garm)" d="M49.86 13.4H71.86L63.61 24H41.61Z"/>
+  <path fill="url(#ghook)" d="M38 25.2H48.5V44.7A3.6 3.6 0 0 0 52.1 48.3H70.8L63.8 58.8H52.1A14.1 14.1 0 0 1 38 44.7Z"/>
+  <text x="84" y="39.5" font-family="Montserrat, Segoe UI, Arial, sans-serif" font-size="21.4"
+        font-weight="800" letter-spacing="-0.3" textLength="129.5" lengthAdjust="spacing">
+    <tspan fill="#12303B">TECH</tspan><tspan fill="#7AB80C">CART</tspan><tspan fill="#12303B">BD</tspan></text>
+  <text x="85" y="57.5" font-family="Montserrat, Segoe UI, Arial, sans-serif" font-size="11.4"
+        font-weight="500" letter-spacing="0.15" fill="#5A6E74"
+        textLength="83.5" lengthAdjust="spacing">techcartbd.com</text>
+</svg>
+  <div class="tag"><b>Banner Gallery</b>26 exports · click any banner to open full size</div>
+</header>
+
+<main>
+
+  <section class="sec">
+    <div class="sec-h">
+      <h2>Feed posts</h2>
+      <p>1200×630 — feed and link shares · 10 banners</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="out/fb-01-smart-tech-1200x630.png" data-fancybox="banners"
+         data-caption="Smart Tech · 1200x630 · fb-01-smart-tech-1200x630.png">
+        <span class="shot"><img src="out/fb-01-smart-tech-1200x630.png" alt="Smart Tech" loading="lazy"></span>
+        <span class="meta"><b>Smart Tech</b><i>1200x630</i></span>
+      </a>
+      <a class="card" href="out/fb-02-upgrade-lifestyle-1200x630.png" data-fancybox="banners"
+         data-caption="Upgrade Lifestyle · 1200x630 · fb-02-upgrade-lifestyle-1200x630.png">
+        <span class="shot"><img src="out/fb-02-upgrade-lifestyle-1200x630.png" alt="Upgrade Lifestyle" loading="lazy"></span>
+        <span class="meta"><b>Upgrade Lifestyle</b><i>1200x630</i></span>
+      </a>
+      <a class="card" href="out/fb-03-trusted-gadget-partner-1200x630.png" data-fancybox="banners"
+         data-caption="Trusted Gadget Partner · 1200x630 · fb-03-trusted-gadget-partner-1200x630.png">
+        <span class="shot"><img src="out/fb-03-trusted-gadget-partner-1200x630.png" alt="Trusted Gadget Partner" loading="lazy"></span>
+        <span class="meta"><b>Trusted Gadget Partner</b><i>1200x630</i></span>
+      </a>
+      <a class="card" href="out/fb-04-simplifies-life-1200x630.png" data-fancybox="banners"
+         data-caption="Simplifies Life · 1200x630 · fb-04-simplifies-life-1200x630.png">
+        <span class="shot"><img src="out/fb-04-simplifies-life-1200x630.png" alt="Simplifies Life" loading="lazy"></span>
+        <span class="meta"><b>Simplifies Life</b><i>1200x630</i></span>
+      </a>
+      <a class="card" href="out/fb-05-mega-gadget-sale-1200x630.png" data-fancybox="banners"
+         data-caption="Mega Gadget Sale · 1200x630 · fb-05-mega-gadget-sale-1200x630.png">
+        <span class="shot"><img src="out/fb-05-mega-gadget-sale-1200x630.png" alt="Mega Gadget Sale" loading="lazy"></span>
+        <span class="meta"><b>Mega Gadget Sale</b><i>1200x630</i></span>
+      </a>
+      <a class="card" href="out/fb-06-free-delivery-1200x630.png" data-fancybox="banners"
+         data-caption="Free Delivery · 1200x630 · fb-06-free-delivery-1200x630.png">
+        <span class="shot"><img src="out/fb-06-free-delivery-1200x630.png" alt="Free Delivery" loading="lazy"></span>
+        <span class="meta"><b>Free Delivery</b><i>1200x630</i></span>
+      </a>
+      <a class="card" href="out/fb-07-warranty-trust-1200x630.png" data-fancybox="banners"
+         data-caption="Warranty Trust · 1200x630 · fb-07-warranty-trust-1200x630.png">
+        <span class="shot"><img src="out/fb-07-warranty-trust-1200x630.png" alt="Warranty Trust" loading="lazy"></span>
+        <span class="meta"><b>Warranty Trust</b><i>1200x630</i></span>
+      </a>
+      <a class="card" href="out/fb-08-cash-on-delivery-1200x630.png" data-fancybox="banners"
+         data-caption="Cash On Delivery · 1200x630 · fb-08-cash-on-delivery-1200x630.png">
+        <span class="shot"><img src="out/fb-08-cash-on-delivery-1200x630.png" alt="Cash On Delivery" loading="lazy"></span>
+        <span class="meta"><b>Cash On Delivery</b><i>1200x630</i></span>
+      </a>
+      <a class="card" href="out/fb-09-flash-sale-1200x630.png" data-fancybox="banners"
+         data-caption="Flash Sale · 1200x630 · fb-09-flash-sale-1200x630.png">
+        <span class="shot"><img src="out/fb-09-flash-sale-1200x630.png" alt="Flash Sale" loading="lazy"></span>
+        <span class="meta"><b>Flash Sale</b><i>1200x630</i></span>
+      </a>
+      <a class="card" href="out/fb-10-new-arrival-1200x630.png" data-fancybox="banners"
+         data-caption="New Arrival · 1200x630 · fb-10-new-arrival-1200x630.png">
+        <span class="shot"><img src="out/fb-10-new-arrival-1200x630.png" alt="New Arrival" loading="lazy"></span>
+        <span class="meta"><b>New Arrival</b><i>1200x630</i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h">
+      <h2>Square posts</h2>
+      <p>1080×1080 — feed and carousel · 7 banners</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="out/02-earbuds-spotlight-1080x1080.png" data-fancybox="banners"
+         data-caption="Earbuds Spotlight · 1080x1080 · 02-earbuds-spotlight-1080x1080.png">
+        <span class="shot"><img src="out/02-earbuds-spotlight-1080x1080.png" alt="Earbuds Spotlight" loading="lazy"></span>
+        <span class="meta"><b>Earbuds Spotlight</b><i>1080x1080</i></span>
+      </a>
+      <a class="card" href="out/05-home-upgrade-1080x1080.png" data-fancybox="banners"
+         data-caption="Home Upgrade · 1080x1080 · 05-home-upgrade-1080x1080.png">
+        <span class="shot"><img src="out/05-home-upgrade-1080x1080.png" alt="Home Upgrade" loading="lazy"></span>
+        <span class="meta"><b>Home Upgrade</b><i>1080x1080</i></span>
+      </a>
+      <a class="card" href="out/fb-11-smartwatch-spotlight-1080x1080.png" data-fancybox="banners"
+         data-caption="Smartwatch Spotlight · 1080x1080 · fb-11-smartwatch-spotlight-1080x1080.png">
+        <span class="shot"><img src="out/fb-11-smartwatch-spotlight-1080x1080.png" alt="Smartwatch Spotlight" loading="lazy"></span>
+        <span class="meta"><b>Smartwatch Spotlight</b><i>1080x1080</i></span>
+      </a>
+      <a class="card" href="out/fb-12-blender-spotlight-1080x1080.png" data-fancybox="banners"
+         data-caption="Blender Spotlight · 1080x1080 · fb-12-blender-spotlight-1080x1080.png">
+        <span class="shot"><img src="out/fb-12-blender-spotlight-1080x1080.png" alt="Blender Spotlight" loading="lazy"></span>
+        <span class="meta"><b>Blender Spotlight</b><i>1080x1080</i></span>
+      </a>
+      <a class="card" href="out/fb-13-kitchen-combo-1080x1080.png" data-fancybox="banners"
+         data-caption="Kitchen Combo · 1080x1080 · fb-13-kitchen-combo-1080x1080.png">
+        <span class="shot"><img src="out/fb-13-kitchen-combo-1080x1080.png" alt="Kitchen Combo" loading="lazy"></span>
+        <span class="meta"><b>Kitchen Combo</b><i>1080x1080</i></span>
+      </a>
+      <a class="card" href="out/fb-14-usb-fan-1080x1080.png" data-fancybox="banners"
+         data-caption="Usb Fan · 1080x1080 · fb-14-usb-fan-1080x1080.png">
+        <span class="shot"><img src="out/fb-14-usb-fan-1080x1080.png" alt="Usb Fan" loading="lazy"></span>
+        <span class="meta"><b>Usb Fan</b><i>1080x1080</i></span>
+      </a>
+      <a class="card" href="out/fb-15-audio-spotlight-1080x1080.png" data-fancybox="banners"
+         data-caption="Audio Spotlight · 1080x1080 · fb-15-audio-spotlight-1080x1080.png">
+        <span class="shot"><img src="out/fb-15-audio-spotlight-1080x1080.png" alt="Audio Spotlight" loading="lazy"></span>
+        <span class="meta"><b>Audio Spotlight</b><i>1080x1080</i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h">
+      <h2>Page covers</h2>
+      <p>1640×856 — page cover photo · 3 banners</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="out/fb-16-cover-smart-tech-1640x856.png" data-fancybox="banners"
+         data-caption="Cover Smart Tech · 1640x856 · fb-16-cover-smart-tech-1640x856.png">
+        <span class="shot"><img src="out/fb-16-cover-smart-tech-1640x856.png" alt="Cover Smart Tech" loading="lazy"></span>
+        <span class="meta"><b>Cover Smart Tech</b><i>1640x856</i></span>
+      </a>
+      <a class="card" href="out/fb-17-cover-trusted-partner-1640x856.png" data-fancybox="banners"
+         data-caption="Cover Trusted Partner · 1640x856 · fb-17-cover-trusted-partner-1640x856.png">
+        <span class="shot"><img src="out/fb-17-cover-trusted-partner-1640x856.png" alt="Cover Trusted Partner" loading="lazy"></span>
+        <span class="meta"><b>Cover Trusted Partner</b><i>1640x856</i></span>
+      </a>
+      <a class="card" href="out/fb-18-cover-upgrade-lifestyle-1640x856.png" data-fancybox="banners"
+         data-caption="Cover Upgrade Lifestyle · 1640x856 · fb-18-cover-upgrade-lifestyle-1640x856.png">
+        <span class="shot"><img src="out/fb-18-cover-upgrade-lifestyle-1640x856.png" alt="Cover Upgrade Lifestyle" loading="lazy"></span>
+        <span class="meta"><b>Cover Upgrade Lifestyle</b><i>1640x856</i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h">
+      <h2>Stories</h2>
+      <p>1080×1920 — story and reel · 3 banners</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="out/04-flash-deal-story-1080x1920.png" data-fancybox="banners"
+         data-caption="Flash Deal Story · 1080x1920 · 04-flash-deal-story-1080x1920.png">
+        <span class="shot"><img src="out/04-flash-deal-story-1080x1920.png" alt="Flash Deal Story" loading="lazy"></span>
+        <span class="meta"><b>Flash Deal Story</b><i>1080x1920</i></span>
+      </a>
+      <a class="card" href="out/fb-19-story-flash-deal-1080x1920.png" data-fancybox="banners"
+         data-caption="Story Flash Deal · 1080x1920 · fb-19-story-flash-deal-1080x1920.png">
+        <span class="shot"><img src="out/fb-19-story-flash-deal-1080x1920.png" alt="Story Flash Deal" loading="lazy"></span>
+        <span class="meta"><b>Story Flash Deal</b><i>1080x1920</i></span>
+      </a>
+      <a class="card" href="out/fb-20-story-new-arrival-1080x1920.png" data-fancybox="banners"
+         data-caption="Story New Arrival · 1080x1920 · fb-20-story-new-arrival-1080x1920.png">
+        <span class="shot"><img src="out/fb-20-story-new-arrival-1080x1920.png" alt="Story New Arrival" loading="lazy"></span>
+        <span class="meta"><b>Story New Arrival</b><i>1080x1920</i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-h">
+      <h2>Earlier set</h2>
+      <p>previous dark-theme banners · 3 banners</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="out/01-gadget-fest-1200x628.png" data-fancybox="banners"
+         data-caption="Gadget Fest · 1200x628 · 01-gadget-fest-1200x628.png">
+        <span class="shot"><img src="out/01-gadget-fest-1200x628.png" alt="Gadget Fest" loading="lazy"></span>
+        <span class="meta"><b>Gadget Fest</b><i>1200x628</i></span>
+      </a>
+      <a class="card" href="out/03-page-cover-1640x624.png" data-fancybox="banners"
+         data-caption="Page Cover · 1640x624 · 03-page-cover-1640x624.png">
+        <span class="shot"><img src="out/03-page-cover-1640x624.png" alt="Page Cover" loading="lazy"></span>
+        <span class="meta"><b>Page Cover</b><i>1640x624</i></span>
+      </a>
+      <a class="card" href="out/06-free-delivery-trust-1200x628.png" data-fancybox="banners"
+         data-caption="Free Delivery Trust · 1200x628 · 06-free-delivery-trust-1200x628.png">
+        <span class="shot"><img src="out/06-free-delivery-trust-1200x628.png" alt="Free Delivery Trust" loading="lazy"></span>
+        <span class="meta"><b>Free Delivery Trust</b><i>1200x628</i></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>TechCartBD · generated by make-gallery.js · re-run after adding banners</footer>
+
+<script src="vendor/fancybox/fancybox.umd.js"></script>
+<script>
+  Fancybox.bind('[data-fancybox="banners"]', {
+    Toolbar: { display: { left: ['infobar'], middle: [], right: ['slideshow', 'fullscreen', 'download', 'close'] } },
+    Images: { Panzoom: { maxScale: 3 } }
+  });
+</script>
+
+</body>
+</html>

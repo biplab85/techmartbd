@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TECHCARTBD — Gadget Fest 1200x628</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+  /* Bottom-right wedge. Hypotenuse on the house angle:
+     from (1200,120) down 508px moves left 508 x 0.7778 = 395px -> (805,628). */
+  .wedge {
+    position: absolute; inset: 0; z-index: 1;
+    background: var(--ramp); opacity: .20;
+    clip-path: polygon(1200px 120px, 1200px 628px, 805px 628px);
+  }
+  .wedge-edge {
+    position: absolute; inset: 0; z-index: 1;
+    background: var(--lime-hi); opacity: .55;
+    clip-path: polygon(1200px 120px, 1203px 120px, 808px 628px, 805px 628px);
+  }
+
+  .copy   { position: absolute; left: 72px; top: 58px; width: 640px; }
+  .stage-1{ right: 32px; top: 70px; width: 470px; height: 430px; z-index: 3; }
+  .ped    { left: 760px; top: 476px; width: 366px; height: 104px; }
+  .foot   { position: absolute; left: 72px; bottom: 44px; }
+</style>
+</head>
+<body>
+
+<div class="banner s-link">
+  <div class="atmos"></div>
+  <div class="wedge"></div>
+  <div class="wedge-edge"></div>
+  <div class="pedestal ped"></div>
+
+  <!-- ===================== PRODUCT ===================== -->
+  <div class="stage stage-1">
+    <div class="halo"></div>
+    <div class="contact"></div>
+    <div class="product-slot is-placeholder">
+      <!-- SWAP -> <img src="photos/smartwatch.png" alt="Smartwatch"> -->
+      <svg viewBox="0 0 380 560" width="286" aria-label="Smartwatch">
+        <defs>
+          <linearGradient id="w-case" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#EDF3EB"/><stop offset=".36" stop-color="#B3C1BD"/>
+            <stop offset=".62" stop-color="#DEE7E2"/><stop offset="1" stop-color="#788986"/>
+          </linearGradient>
+          <linearGradient id="w-strap" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#12292A"/><stop offset=".4" stop-color="#294845"/>
+            <stop offset="1" stop-color="#0B1E1F"/>
+          </linearGradient>
+          <radialGradient id="w-screen" cx=".36" cy=".24" r=".95">
+            <stop offset="0" stop-color="#123430"/><stop offset=".55" stop-color="#07191B"/>
+            <stop offset="1" stop-color="#020A0B"/>
+          </radialGradient>
+        </defs>
+
+        <!-- straps, tapered with rounded ends -->
+        <path fill="url(#w-strap)" d="M148 16h84a22 22 0 0 1 22 22v148H126V38a22 22 0 0 1 22-22z"/>
+        <path fill="url(#w-strap)" d="M126 374h128v148a22 22 0 0 1-22 22h-84a22 22 0 0 1-22-22z"/>
+        <g fill="rgba(0,0,0,.32)">
+          <rect x="150" y="58"  width="80" height="6" rx="3"/>
+          <rect x="150" y="84"  width="80" height="6" rx="3"/>
+          <rect x="150" y="110" width="80" height="6" rx="3"/>
+          <rect x="150" y="452" width="80" height="6" rx="3"/>
+          <rect x="150" y="478" width="80" height="6" rx="3"/>
+        </g>
+        <path fill="rgba(243,248,238,.07)" d="M148 16h18v170h-18z"/>
+
+        <!-- crown + button -->
+        <rect x="330" y="246" width="20" height="48" rx="7" fill="#A6B5B1"/>
+        <rect x="333" y="254" width="14" height="32" rx="5" fill="#6B7C79"/>
+        <rect x="330" y="314" width="15" height="30" rx="6" fill="#8DA09B"/>
+
+        <!-- case -->
+        <rect x="42" y="146" width="296" height="276" rx="78" fill="url(#w-case)"/>
+        <rect x="55" y="159" width="270" height="250" rx="68" fill="#0E1C1B"/>
+        <rect x="67" y="171" width="246" height="226" rx="60" fill="url(#w-screen)"/>
+
+        <!-- screen UI -->
+        <g transform="translate(190 284)">
+          <circle r="73" fill="none" stroke="rgba(243,248,238,.09)" stroke-width="13"/>
+          <circle r="73" fill="none" stroke="#8FD00E" stroke-width="13" stroke-linecap="round"
+                  stroke-dasharray="336 459" transform="rotate(-90)"/>
+          <circle r="51" fill="none" stroke="rgba(243,248,238,.07)" stroke-width="11"/>
+          <circle r="51" fill="none" stroke="#12A165" stroke-width="11" stroke-linecap="round"
+                  stroke-dasharray="200 320" transform="rotate(-90)"/>
+          <text y="-4" text-anchor="middle" fill="#F3F8EE" font-size="42" font-weight="800" letter-spacing="-1.5">10:24</text>
+          <text y="26" text-anchor="middle" fill="#7E9791" font-size="14" font-weight="600" letter-spacing="2.6">8,420 STEPS</text>
+        </g>
+
+        <!-- glass sheen -->
+        <path fill="rgba(243,248,238,.06)" d="M67 231c0-33 27-60 60-60h124c-66 23-119 68-152 127-20-15-32-40-32-67z"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ===================== COPY ===================== -->
+  <div class="copy">
+    <svg class="logo" viewBox="0 0 236 72" role="img" aria-label="TechCartBD" style="height:48px">
+      <defs>
+        <linearGradient id="Lbar" gradientUnits="userSpaceOnUse" x1="11" y1="21" x2="46.9" y2="15">
+          <stop offset="0" stop-color="#17924E"/><stop offset=".5" stop-color="#5FA028"/><stop offset="1" stop-color="#86BD08"/></linearGradient>
+        <linearGradient id="Lstem" gradientUnits="userSpaceOnUse" x1="26.5" y1="24" x2="26.5" y2="58.8">
+          <stop offset="0" stop-color="#0A9364"/><stop offset="1" stop-color="#047285"/></linearGradient>
+        <linearGradient id="Larm" gradientUnits="userSpaceOnUse" x1="56" y1="13.4" x2="56" y2="24">
+          <stop offset="0" stop-color="#12A165"/><stop offset="1" stop-color="#0E9159"/></linearGradient>
+        <linearGradient id="Lhook" gradientUnits="userSpaceOnUse" x1="38" y1="25.2" x2="70.8" y2="58.8">
+          <stop offset="0" stop-color="#8CC80B"/><stop offset=".37" stop-color="#329B49"/><stop offset="1" stop-color="#027183"/></linearGradient>
+      </defs>
+      <path fill="url(#Lbar)"  d="M11 13.4H46.86L38.61 24H11Z"/>
+      <path fill="url(#Lstem)" d="M21 24h11v34.8H21z"/>
+      <path fill="url(#Larm)"  d="M49.86 13.4H71.86L63.61 24H41.61Z"/>
+      <path fill="url(#Lhook)" d="M38 25.2H48.5V44.7A3.6 3.6 0 0 0 52.1 48.3H70.8L63.8 58.8H52.1A14.1 14.1 0 0 1 38 44.7Z"/>
+      <text x="84" y="39.5" font-size="21.4" font-weight="700" letter-spacing="-.3" textLength="129.5" lengthAdjust="spacing">
+        <tspan fill="#F3F8EE">TECH</tspan><tspan fill="#8FD00E">CART</tspan><tspan fill="#F3F8EE">BD</tspan></text>
+      <text x="85" y="57.5" font-size="11.4" font-weight="500" letter-spacing=".15" fill="#8FA8A3" textLength="83.5" lengthAdjust="spacing">techcartbd.com</text>
+    </svg>
+
+    <div class="eyebrow" style="margin-top:30px">Gadget Fest &middot; Ends Sunday</div>
+
+    <div class="display" style="font-size:42px; margin-top:16px; color:rgba(243,248,238,.62)">Up to</div>
+    <div class="display" style="font-size:118px; margin-top:4px; white-space:nowrap">
+      <span class="on-grad">45%</span> <span style="color:var(--paper)">Off</span>
+    </div>
+
+    <p class="lede" style="margin-top:22px; max-width:500px">
+      Smartwatches, earbuds and everyday tech &mdash; genuine
+      products, cash on delivery nationwide.
+    </p>
+
+    <div class="row" style="gap:18px; margin-top:34px">
+      <span class="cta">Shop Now <i class="chev"></i></span>
+      <span class="chip"><i class="dot"></i>7-Day Replacement</span>
+    </div>
+  </div>
+
+  <div class="foot micro">Free delivery on orders over <span class="tk">&#2547;</span>2,000</div>
+
+  <div class="vignette"></div>
+  <div class="grain"></div>
+</div>
+
+</body>
+</html>
