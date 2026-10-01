@@ -29,14 +29,60 @@
   header {
     background: #fff; border-bottom: 1px solid var(--line);
     padding: 30px 40px 26px;
-    display: flex; align-items: flex-end; gap: 26px; flex-wrap: wrap;
+    display: flex; align-items: center; gap: 26px; flex-wrap: wrap;
   }
   .mark { height: 56px; width: auto; display: block; }
   header .tag {
     padding-bottom: 4px; font-size: 14px; font-weight: 600; color: var(--slate);
     border-left: 1px solid var(--line); padding-left: 26px;
   }
-  header .tag b { display: block; font-size: 17px; font-weight: 800; color: var(--navy); }
+  .all-button {
+    margin-left: auto; padding: 10px 22px; border: 0; border-radius: 999px;
+    background: var(--teal); color: #fff; cursor: pointer; font: inherit;
+    font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .all-button:hover { background: var(--lime); }
+  .contact { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+  .contact a {
+    display: inline-flex; align-items: center; gap: 8px; color: var(--slate);
+    font-size: 12px; font-weight: 700; text-decoration: none; white-space: nowrap;
+  }
+  .contact a:hover { color: var(--teal); }
+  .contact svg { width: 17px; height: 17px; fill: none; stroke: var(--lime); stroke-width: 1.8;
+    stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---- category image sections ---- */
+  .category-sections { max-width: 1680px; margin: 0 auto; padding: 28px 40px 0; }
+  .category-section + .category-section { margin-top: 42px; }
+  .category-section h2 {
+    margin-bottom: 16px; padding-left: 14px; border-left: 5px solid var(--lime-hi);
+    font-size: 20px; font-weight: 800; text-transform: uppercase;
+  }
+  .category-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+  .category-card { position: relative; display: block; color: inherit; text-decoration: none; }
+  .category-card img {
+    display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: contain;
+    padding: 10px; background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+  }
+  .category-card:hover img {
+    border-color: var(--lime-hi); transform: translateY(-3px);
+    box-shadow: 0 16px 30px -18px rgba(10,60,50,.55);
+  }
+  .category-card .product-badge {
+    position: absolute; top: 14px; left: 14px; z-index: 1;
+    display: inline-flex; align-items: baseline; gap: 4px;
+    min-width: 76px; padding: 8px 12px; border: 2px solid var(--lime-hi);
+    border-radius: 8px; background: var(--teal); color: #fff;
+    font-size: 20px; font-weight: 900; line-height: 1; letter-spacing: .04em;
+    box-shadow: 0 8px 18px -8px rgba(4,25,27,.85), 0 0 0 3px rgba(255,255,255,.7);
+    text-shadow: 0 1px 2px rgba(4,25,27,.5);
+  }
+  .category-card .product-badge::before {
+    content: 'NO.'; color: var(--lime-hi); font-size: 11px; letter-spacing: .1em;
+  }
+
+  .mobile-app-bar { display: none; }
 
   /* ---- sections ---- */
   main { padding: 40px; max-width: 1680px; margin: 0 auto; }
@@ -77,8 +123,36 @@
   }
 
   @media (max-width: 640px) {
-    header { padding: 22px 20px; } main { padding: 24px 20px; }
+    html { scroll-padding-bottom: 76px; }
+    body { padding-bottom: 76px; }
+    header { padding: 16px 18px; gap: 14px; }
+    .mark { height: 42px; }
+    .contact { display: none; }
+    .all-button { margin-left: auto; padding: 9px 18px; }
+    main { padding: 24px 18px; }
     .grid { grid-template-columns: 1fr; }
+    .category-sections { padding: 24px 18px 0; }
+    .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .category-section + .category-section { margin-top: 32px; }
+    .category-section h2 { font-size: 17px; margin-bottom: 12px; }
+    .category-card img { padding: 6px; border-radius: 8px; }
+    .category-card .product-badge { top: 9px; left: 9px; min-width: 62px; padding: 7px 9px; font-size: 16px; }
+    .category-card .product-badge::before { font-size: 9px; }
+    .mobile-app-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
+      padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+      background: rgba(255,255,255,.96); border-top: 1px solid var(--line);
+      box-shadow: 0 -10px 26px -18px rgba(10,60,50,.7); backdrop-filter: blur(12px);
+    }
+    .mobile-app-bar a {
+      display: grid; justify-items: center; gap: 4px; color: var(--slate);
+      text-decoration: none; font-size: 10px; font-weight: 800; letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .mobile-app-bar a:first-child, .mobile-app-bar a:hover { color: var(--teal); }
+    .mobile-app-bar svg { width: 21px; height: 21px; fill: none; stroke: currentColor;
+      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   }
 </style>
 </head>
@@ -112,10 +186,63 @@
         font-weight="500" letter-spacing="0.15" fill="#5A6E74"
         textLength="83.5" lengthAdjust="spacing">techcartbd.com</text>
 </svg>
-  <div class="tag"><b>Banner Gallery</b>26 exports · click any banner to open full size</div>
+  <button class="all-button" type="button" data-scroll-to="gallery">All</button>
+  <nav class="contact" aria-label="Contact information">
+    <a href="mailto:milonmallick55@gmail.com">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+      milonmallick55@gmail.com
+    </a>
+    <a href="tel:+8801933834282">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5 9 3l2 4.7-2.1 1.6a14.2 14.2 0 0 0 5.8 5.8l1.6-2.1 4.7 2-0.5 4c-1.2.1-2.4-.3-3.3-1.1l-4.9-4.9a4.8 4.8 0 0 1-1.1-3.3z"/></svg>
+      +880 1933-834282
+    </a>
+    <a href="https://techcartbd.com" target="_blank" rel="noreferrer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      techcartbd.com
+    </a>
+  </nav>
 </header>
 
-<main>
+<section class="category-sections" aria-label="Featured categories">
+  <section class="category-section" id="sourcing">
+    <h2>Sourcing</h2>
+    <div class="category-grid">
+      <a class="category-card" href="image/headphone/1.webp" data-fancybox="category-images" data-caption="1"><img src="image/headphone/1.webp" alt="1"><span class="product-badge">1</span></a>
+      <a class="category-card" href="image/headphone/2.webp" data-fancybox="category-images" data-caption="2"><img src="image/headphone/2.webp" alt="2"><span class="product-badge">2</span></a>
+      <a class="category-card" href="image/headphone/3.webp" data-fancybox="category-images" data-caption="3"><img src="image/headphone/3.webp" alt="3"><span class="product-badge">3</span></a>
+      <a class="category-card" href="image/headphone/4.webp" data-fancybox="category-images" data-caption="4"><img src="image/headphone/4.webp" alt="4"><span class="product-badge">4</span></a>
+      <a class="category-card" href="image/headphone/5.webp" data-fancybox="category-images" data-caption="5"><img src="image/headphone/5.webp" alt="5"><span class="product-badge">5</span></a>
+    </div>
+  </section>
+  <section class="category-section" id="upcoming">
+    <h2>Upcoming</h2>
+    <div class="category-grid">
+      <a class="category-card" href="image/2.svg" data-fancybox="category-images" data-caption="Upcoming 1"><img src="image/2.svg" alt="Upcoming image 1"></a>
+      <a class="category-card" href="image/3.svg" data-fancybox="category-images" data-caption="Upcoming 2"><img src="image/3.svg" alt="Upcoming image 2"></a>
+      <a class="category-card" href="image/4.svg" data-fancybox="category-images" data-caption="Upcoming 3"><img src="image/4.svg" alt="Upcoming image 3"></a>
+      <a class="category-card" href="image/5.svg" data-fancybox="category-images" data-caption="Upcoming 4"><img src="image/5.svg" alt="Upcoming image 4"></a>
+      <a class="category-card" href="image/1.svg" data-fancybox="category-images" data-caption="Upcoming 5"><img src="image/1.svg" alt="Upcoming image 5"></a>
+      <a class="category-card" href="image/2.svg" data-fancybox="category-images" data-caption="Upcoming 6"><img src="image/2.svg" alt="Upcoming image 6"></a>
+      <a class="category-card" href="image/3.svg" data-fancybox="category-images" data-caption="Upcoming 7"><img src="image/3.svg" alt="Upcoming image 7"></a>
+      <a class="category-card" href="image/4.svg" data-fancybox="category-images" data-caption="Upcoming 8"><img src="image/4.svg" alt="Upcoming image 8"></a>
+    </div>
+  </section>
+  <section class="category-section" id="offer">
+    <h2>Offer</h2>
+    <div class="category-grid">
+      <a class="category-card" href="image/3.svg" data-fancybox="category-images" data-caption="Offer 1"><img src="image/3.svg" alt="Offer image 1"></a>
+      <a class="category-card" href="image/4.svg" data-fancybox="category-images" data-caption="Offer 2"><img src="image/4.svg" alt="Offer image 2"></a>
+      <a class="category-card" href="image/5.svg" data-fancybox="category-images" data-caption="Offer 3"><img src="image/5.svg" alt="Offer image 3"></a>
+      <a class="category-card" href="image/1.svg" data-fancybox="category-images" data-caption="Offer 4"><img src="image/1.svg" alt="Offer image 4"></a>
+      <a class="category-card" href="image/2.svg" data-fancybox="category-images" data-caption="Offer 5"><img src="image/2.svg" alt="Offer image 5"></a>
+      <a class="category-card" href="image/3.svg" data-fancybox="category-images" data-caption="Offer 6"><img src="image/3.svg" alt="Offer image 6"></a>
+      <a class="category-card" href="image/4.svg" data-fancybox="category-images" data-caption="Offer 7"><img src="image/4.svg" alt="Offer image 7"></a>
+      <a class="category-card" href="image/5.svg" data-fancybox="category-images" data-caption="Offer 8"><img src="image/5.svg" alt="Offer image 8"></a>
+    </div>
+  </section>
+</section>
+
+<main id="gallery">
 
   <section class="sec">
     <div class="sec-h">
@@ -295,9 +422,31 @@
 
 <footer>TechCartBD · generated by make-gallery.js · re-run after adding banners</footer>
 
+<nav class="mobile-app-bar" aria-label="Mobile gallery navigation">
+  <a href="#gallery" aria-label="Show all banners">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span>All</span>
+  </a>
+  <a href="#sourcing" aria-label="Go to sourcing">
+    <svg viewBox="0 0 24 24"><path d="M4 8.5 12 4l8 4.5L12 13 4 8.5Z"/><path d="m4 12 8 4.5 8-4.5M4 15.5l8 4.5 8-4.5"/></svg>
+    <span>Sourcing</span>
+  </a>
+  <a href="#upcoming" aria-label="Go to upcoming">
+    <svg viewBox="0 0 24 24"><path d="M4 17V7l8-4 8 4v10l-8 4-8-4Z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg>
+    <span>Upcoming</span>
+  </a>
+  <a href="#offer" aria-label="Go to offers">
+    <svg viewBox="0 0 24 24"><path d="m20 13-7 7H6a3 3 0 0 1-3-3v-7l7-7h5l5 5v5Z"/><circle cx="9" cy="9" r="1.2"/></svg>
+    <span>Offer</span>
+  </a>
+</nav>
+
 <script src="vendor/fancybox/fancybox.umd.js"></script>
 <script>
-  Fancybox.bind('[data-fancybox="banners"]', {
+  document.querySelector('[data-scroll-to="gallery"]').addEventListener('click', () => {
+    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+  });
+  Fancybox.bind('[data-fancybox="banners"], [data-fancybox="category-images"]', {
     Toolbar: { display: { left: ['infobar'], middle: [], right: ['slideshow', 'fullscreen', 'download', 'close'] } },
     Images: { Panzoom: { maxScale: 3 } }
   });
