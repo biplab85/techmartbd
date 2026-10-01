@@ -281,7 +281,7 @@ const html = `<!doctype html>
   <section class="category-section" id="sourcing">
     <h2>Sourcing</h2>
     <div class="category-grid">
-      ${[1, 2, 3, 4, 5].map(n => `<a class="category-card" href="image/headphone/${n}.webp" data-fancybox="category-images" data-caption="${n}"><img src="image/headphone/${n}.webp" alt="${n}"><span class="product-badge">${n}</span></a>`).join('')}
+      ${[['1', 'webp'], ['2', 'webp'], ['3', 'webp'], ['4', 'webp'], ['5', 'webp'], ['6', 'jpeg'], ['7', 'jpeg']].map(([n, ext]) => `<a class="category-card" href="image/headphone/${n}.${ext}" data-fancybox="category-images" data-caption="${n}"><img src="image/headphone/${n}.${ext}" alt="${n}"><span class="product-badge">${n}</span></a>`).join('')}
     </div>
   </section>
   <section class="category-section" id="upcoming">
