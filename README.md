@@ -23,6 +23,7 @@ Finished PNGs are in **`out/`**. Everything is 1× and ready to upload.
 | 08 | `fb-08-cash-on-delivery` | Cash on delivery |
 | 09 | `fb-09-flash-sale` | 24-hour flash sale + countdown |
 | 10 | `fb-10-new-arrival` | Smart watch launch + price |
+| 21 | `fb-21-happy-friday` | Happy Friday weekend greeting + 30% Friday-only seal |
 
 ### Square posts / carousel — 1080×1080
 | # | File | Message |

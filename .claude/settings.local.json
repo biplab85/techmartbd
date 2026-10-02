@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"from PIL import Image; im=Image.open\\('banner.png'\\); print\\(im.size, im.mode\\)\")",
+      "Read(//d/mart-logo/.playwright-mcp/**)"
+    ]
+  }
+}

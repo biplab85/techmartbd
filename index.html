@@ -74,12 +74,9 @@
     display: inline-flex; align-items: baseline; gap: 4px;
     min-width: 76px; padding: 8px 12px; border: 2px solid var(--lime-hi);
     border-radius: 8px; background: var(--teal); color: #fff;
-    font-size: 20px; font-weight: 900; line-height: 1; letter-spacing: .04em;
+    font-size: 14px; font-weight: 900; line-height: 1; letter-spacing: .04em;
     box-shadow: 0 8px 18px -8px rgba(4,25,27,.85), 0 0 0 3px rgba(255,255,255,.7);
     text-shadow: 0 1px 2px rgba(4,25,27,.5);
-  }
-  .category-card .product-badge::before {
-    content: 'NO.'; color: var(--lime-hi); font-size: 11px; letter-spacing: .1em;
   }
 
   .mobile-app-bar { display: none; }
@@ -117,9 +114,20 @@
     letter-spacing: .06em; color: var(--slate);
   }
 
-  footer {
-    padding: 30px 40px 50px; text-align: center;
-    font-size: 13px; font-weight: 500; color: var(--slate);
+  .site-footer { margin-top: 44px; padding: 28px 40px; background: var(--teal); color: #fff; }
+  .footer-inner {
+    max-width: 1680px; margin: 0 auto; display: grid;
+    grid-template-columns: 1fr auto; align-items: center; gap: 18px 32px;
+  }
+  .footer-brand { display: grid; gap: 4px; color: inherit; text-decoration: none; }
+  .footer-brand strong { font-size: 17px; font-weight: 800; }
+  .footer-brand span { color: rgba(255,255,255,.72); font-size: 12px; }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px; }
+  .footer-links a { color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; }
+  .footer-links a:hover { color: var(--lime-hi); }
+  .footer-copy {
+    grid-column: 1 / -1; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.18);
+    color: rgba(255,255,255,.68); font-size: 11px;
   }
 
   @media (max-width: 640px) {
@@ -136,8 +144,11 @@
     .category-section + .category-section { margin-top: 32px; }
     .category-section h2 { font-size: 17px; margin-bottom: 12px; }
     .category-card img { padding: 6px; border-radius: 8px; }
-    .category-card .product-badge { top: 9px; left: 9px; min-width: 62px; padding: 7px 9px; font-size: 16px; }
-    .category-card .product-badge::before { font-size: 9px; }
+    .category-card .product-badge { top: 9px; left: 9px; min-width: 62px; padding: 7px 9px; font-size: 12px; }
+    .site-footer { margin-top: 32px; padding: 24px 18px; }
+    .footer-inner { grid-template-columns: 1fr; gap: 16px; }
+    .footer-links { justify-content: flex-start; gap: 12px 18px; }
+    .footer-copy { grid-column: auto; }
     .mobile-app-bar {
       position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
@@ -203,7 +214,7 @@
   </nav>
 </header>
 
-<section class="category-sections" aria-label="Featured categories">
+<section class="category-sections" id="gallery" aria-label="Featured categories">
   <section class="category-section" id="sourcing">
     <h2>Sourcing</h2>
     <div class="category-grid">
@@ -214,215 +225,203 @@
       <a class="category-card" href="image/headphone/5.webp" data-fancybox="category-images" data-caption="5"><img src="image/headphone/5.webp" alt="5"><span class="product-badge">5</span></a>
       <a class="category-card" href="image/headphone/6.jpeg" data-fancybox="category-images" data-caption="6"><img src="image/headphone/6.jpeg" alt="6"><span class="product-badge">6</span></a>
       <a class="category-card" href="image/headphone/7.jpeg" data-fancybox="category-images" data-caption="7"><img src="image/headphone/7.jpeg" alt="7"><span class="product-badge">7</span></a>
+      <a class="category-card" href="image/new-product/Dish%20Cleaning%20Brush.webp" data-fancybox="category-images" data-caption="Dish Cleaning Brush"><img src="image/new-product/Dish%20Cleaning%20Brush.webp" alt="Dish Cleaning Brush"><span class="product-badge">8</span></a>
+      <a class="category-card" href="image/new-product/Electronic%20Kitchen%20Digital%20Scale.webp" data-fancybox="category-images" data-caption="Electronic Kitchen Digital Scale"><img src="image/new-product/Electronic%20Kitchen%20Digital%20Scale.webp" alt="Electronic Kitchen Digital Scale"><span class="product-badge">9</span></a>
+      <a class="category-card" href="image/new-product/hand%20mixer%20%20better.webp" data-fancybox="category-images" data-caption="Hand Mixer Better"><img src="image/new-product/hand%20mixer%20%20better.webp" alt="Hand Mixer Better"><span class="product-badge">10</span></a>
+      <a class="category-card" href="image/new-product/Handheld%20Coffee%20Mixer.webp" data-fancybox="category-images" data-caption="Handheld Coffee Mixer"><img src="image/new-product/Handheld%20Coffee%20Mixer.webp" alt="Handheld Coffee Mixer"><span class="product-badge">11</span></a>
+      <a class="category-card" href="image/new-product/Lenovo%20HE05X%20Bluetooth%205.0%20Earphones%20Waterproof%20Wireless%20HIFI%20Sound%20Magnetic%20Neckband%20Headset%20Sports%20Headphones%20%282%29.webp" data-fancybox="category-images" data-caption="Lenovo HE05X Earphones"><img src="image/new-product/Lenovo%20HE05X%20Bluetooth%205.0%20Earphones%20Waterproof%20Wireless%20HIFI%20Sound%20Magnetic%20Neckband%20Headset%20Sports%20Headphones%20%282%29.webp" alt="Lenovo HE05X Earphones"><span class="product-badge">12</span></a>
+      <a class="category-card" href="image/new-product/Lenovo%20HE05X%20Bluetooth%205.0%20Earphones%20Waterproof%20Wireless%20HIFI%20Sound%20Magnetic%20Neckband%20Headset%20Sports%20Headphones.webp" data-fancybox="category-images" data-caption="Lenovo HE05X Earphones Wireless"><img src="image/new-product/Lenovo%20HE05X%20Bluetooth%205.0%20Earphones%20Waterproof%20Wireless%20HIFI%20Sound%20Magnetic%20Neckband%20Headset%20Sports%20Headphones.webp" alt="Lenovo HE05X Earphones Wireless"><span class="product-badge">13</span></a>
+      <a class="category-card" href="image/new-product/Ultrapods%20Pro%20True%20Wireless%20Earbuds%20-%20Transparent%20Design,%20Bluetooth%205.3,%20Waterproof%20with%20Display.webp" data-fancybox="category-images" data-caption="Ultrapods Pro True Wireless Earbuds"><img src="image/new-product/Ultrapods%20Pro%20True%20Wireless%20Earbuds%20-%20Transparent%20Design,%20Bluetooth%205.3,%20Waterproof%20with%20Display.webp" alt="Ultrapods Pro True Wireless Earbuds"><span class="product-badge">14</span></a>
+      <a class="category-card" href="image/new-product/WhatsApp%20Image%202026-09-15%20at%2010.52.47%20AM.jpeg" data-fancybox="category-images" data-caption="WhatsApp Image 2026-09-15"><img src="image/new-product/WhatsApp%20Image%202026-09-15%20at%2010.52.47%20AM.jpeg" alt="WhatsApp Image 2026-09-15"><span class="product-badge">15</span></a>
+      <a class="category-card" href="image/new-product/WhatsApp%20Image%202026-09-26%20at%201.02.53%20PM.jpeg" data-fancybox="category-images" data-caption="WhatsApp Image 2026-09-26 1.02.53 PM"><img src="image/new-product/WhatsApp%20Image%202026-09-26%20at%201.02.53%20PM.jpeg" alt="WhatsApp Image 2026-09-26 1.02.53 PM"><span class="product-badge">16</span></a>
+      <a class="category-card" href="image/new-product/WhatsApp%20Image%202026-09-26%20at%201.03.58%20PM.jpeg" data-fancybox="category-images" data-caption="WhatsApp Image 2026-09-26 1.03.58 PM"><img src="image/new-product/WhatsApp%20Image%202026-09-26%20at%201.03.58%20PM.jpeg" alt="WhatsApp Image 2026-09-26 1.03.58 PM"><span class="product-badge">17</span></a>
+      <a class="category-card" href="image/new-product/WhatsApp%20Image%202026-09-26%20at%201.30.33%20PM.jpeg" data-fancybox="category-images" data-caption="WhatsApp Image 2026-09-26 1.30.33 PM"><img src="image/new-product/WhatsApp%20Image%202026-09-26%20at%201.30.33%20PM.jpeg" alt="WhatsApp Image 2026-09-26 1.30.33 PM"><span class="product-badge">18</span></a>
+      <a class="category-card" href="image/new-product/WhatsApp%20Image%202026-09-27%20at%207.42.30%20PM.jpeg" data-fancybox="category-images" data-caption="WhatsApp Image 2026-09-27"><img src="image/new-product/WhatsApp%20Image%202026-09-27%20at%207.42.30%20PM.jpeg" alt="WhatsApp Image 2026-09-27"><span class="product-badge">19</span></a>
+      <a class="category-card" href="image/new-product/WhatsApp%20Image%202026-09-28%20at%2010.21.21%20AM.jpeg" data-fancybox="category-images" data-caption="WhatsApp Image 2026-09-28 10.21.21 AM"><img src="image/new-product/WhatsApp%20Image%202026-09-28%20at%2010.21.21%20AM.jpeg" alt="WhatsApp Image 2026-09-28 10.21.21 AM"><span class="product-badge">20</span></a>
+      <a class="category-card" href="image/new-product/WhatsApp%20Image%202026-09-28%20at%208.36.19%20PM.jpeg" data-fancybox="category-images" data-caption="WhatsApp Image 2026-09-28 8.36.19 PM"><img src="image/new-product/WhatsApp%20Image%202026-09-28%20at%208.36.19%20PM.jpeg" alt="WhatsApp Image 2026-09-28 8.36.19 PM"><span class="product-badge">21</span></a>
+      <a class="category-card" href="image/new-product/WhatsApp%20Image%202026-09-28%20at%208.36.20%20PM.jpeg" data-fancybox="category-images" data-caption="WhatsApp Image 2026-09-28 8.36.20 PM"><img src="image/new-product/WhatsApp%20Image%202026-09-28%20at%208.36.20%20PM.jpeg" alt="WhatsApp Image 2026-09-28 8.36.20 PM"><span class="product-badge">22</span></a>
     </div>
+    <script>
+      (function () {
+        const productUrls = [
+          'https://img.drz.lazcdn.com/g/kf/Se3890cada2814dee9b8e695c1804ab47H.png_200x200q80.png_.webp',
+          'https://img.drz.lazcdn.com/g/kf/Sfabf73039eab4c9989a6f3c103400f48a.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/S22bc42f70b96475aad7c1b39c745919br.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/S17b0fc2fa8784a0f91ccc99a9c5a607bR.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/Sebeac118bbcb4a2eb9718f0158893020O.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/S36a917ff17dc4df99c7b1903f4c3b4b3I.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/2ee5fb79f9f5696c695a50a03ea56e29.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/62db475fe8944f7ba20816671b8d99b5.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/97353eb6ae529adb0792ce3acc5d5fff.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/S3425c6f2fe094dcdb068c23f09b55c9ei.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/static/bd/p/ca8f83494a7a404bf1b80889242b202b.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/68e89cf72c4461ae60bafb9b2e256430.png_200x200q80.png_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/f422786abff6b1b75ece22855bbb7ad2.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/e5fe6955e0a0f30548b204e0ca05a48f.png_200x200q80.png_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/08d03524c27d292bd898e15e64fe1a69.png_200x200q80.png_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/ae7c68440c0679f4044c585282699309.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/Sa1129dad0a044050bdf02303e9bcfc09n.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/S6477c412ef144281b1c3d961bdc3db8aj.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/8082172106c6aa4d4c567b6a3b34a802.png_200x200q80.png_.webp',
+          'https://img.drz.lazcdn.com/g/kf/Sbb143912f406404dba838f2f7a0c726al.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/S1e3e326df133480a9eb62b502f7a7932W.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/6e39c75783fccda86a7ac3997411b160.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/S1ed03b7b6ae14a09b2898b4aa6468116v.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/Sb3f2ed4c06d845819eb7e2012a82b3e7b.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/g/kf/Scb6c648b9b32430a80f1572b8a2ff430u.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/static/bd/p/773c90afed3c6010e5aa6cd2dc438449.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/g/kf/Se435450552a1493ca8095abe28af015bo.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/g/kf/Sbfedbe0939594544bfa20f64c4471b6di.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/static/bd/p/165985772b3c9c14c1dac88936b13d72.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/g/kf/S97298809f3324678969f7c0806c94a42n.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/g/kf/Sc98f888388284f7585e02e353a77c57a1.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/g/kf/S39e0b6810c474eb4960d266d5dc23b4en.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/static/bd/p/908f4a39b47dd7fd90c0d3848abb38c9.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/static/bd/p/aac46ab9f3409322af7dd2cc9a0066df.jpg_200x200q80.avif',
+          'https://img.drz.lazcdn.com/g/kf/S642d74a015864a6d975f7265b89b4f6fu.jpg_200x200q80.avif'
+        ];
+        const grid = document.querySelector('#sourcing .category-grid');
+        const items = Array.from({ length: 100 }, (_, i) => ({
+          src: productUrls[i % productUrls.length],
+          label: 'Product ' + (i + 1)
+        }));
+
+        items.forEach((item, index) => {
+          const a = document.createElement('a');
+          a.className = 'category-card';
+          a.href = item.src;
+          a.setAttribute('data-fancybox', 'category-images');
+          const prefix = 'sou-' + (index + 1);
+          const label = prefix + ' • ' + item.label;
+          a.setAttribute('data-caption', label);
+          a.setAttribute('aria-label', label);
+          a.innerHTML = '<img src="' + item.src + '" alt="' + label + '"><span class="product-badge">' + prefix + '</span>';
+          grid.appendChild(a);
+        });
+
+        document.querySelectorAll('#sourcing .category-card').forEach((card, index) => {
+          const img = card.querySelector('img');
+          const rawName = (img && img.getAttribute('alt')) || 'Product ' + (index + 1);
+          const prefix = 'sou-' + (index + 1);
+          const productName = rawName.replace(/^sou-\d+\s*[•-]?\s*/i, '').trim() || 'Product ' + (index + 1);
+          const label = prefix + ' • ' + productName;
+          card.setAttribute('data-caption', label);
+          card.setAttribute('aria-label', label);
+          if (img) img.setAttribute('alt', label);
+          const badge = card.querySelector('.product-badge') || document.createElement('span');
+          badge.className = 'product-badge';
+          badge.textContent = prefix;
+          if (!card.querySelector('.product-badge')) card.appendChild(badge);
+        });
+      })();
+    </script>
   </section>
   <section class="category-section" id="upcoming">
     <h2>Upcoming</h2>
-    <div class="category-grid">
-      <a class="category-card" href="image/2.svg" data-fancybox="category-images" data-caption="Upcoming 1"><img src="image/2.svg" alt="Upcoming image 1"></a>
-      <a class="category-card" href="image/3.svg" data-fancybox="category-images" data-caption="Upcoming 2"><img src="image/3.svg" alt="Upcoming image 2"></a>
-      <a class="category-card" href="image/4.svg" data-fancybox="category-images" data-caption="Upcoming 3"><img src="image/4.svg" alt="Upcoming image 3"></a>
-      <a class="category-card" href="image/5.svg" data-fancybox="category-images" data-caption="Upcoming 4"><img src="image/5.svg" alt="Upcoming image 4"></a>
-      <a class="category-card" href="image/1.svg" data-fancybox="category-images" data-caption="Upcoming 5"><img src="image/1.svg" alt="Upcoming image 5"></a>
-      <a class="category-card" href="image/2.svg" data-fancybox="category-images" data-caption="Upcoming 6"><img src="image/2.svg" alt="Upcoming image 6"></a>
-      <a class="category-card" href="image/3.svg" data-fancybox="category-images" data-caption="Upcoming 7"><img src="image/3.svg" alt="Upcoming image 7"></a>
-      <a class="category-card" href="image/4.svg" data-fancybox="category-images" data-caption="Upcoming 8"><img src="image/4.svg" alt="Upcoming image 8"></a>
-    </div>
+    <div class="category-grid" data-product-grid="upcoming"></div>
   </section>
   <section class="category-section" id="offer">
     <h2>Offer</h2>
-    <div class="category-grid">
-      <a class="category-card" href="image/3.svg" data-fancybox="category-images" data-caption="Offer 1"><img src="image/3.svg" alt="Offer image 1"></a>
-      <a class="category-card" href="image/4.svg" data-fancybox="category-images" data-caption="Offer 2"><img src="image/4.svg" alt="Offer image 2"></a>
-      <a class="category-card" href="image/5.svg" data-fancybox="category-images" data-caption="Offer 3"><img src="image/5.svg" alt="Offer image 3"></a>
-      <a class="category-card" href="image/1.svg" data-fancybox="category-images" data-caption="Offer 4"><img src="image/1.svg" alt="Offer image 4"></a>
-      <a class="category-card" href="image/2.svg" data-fancybox="category-images" data-caption="Offer 5"><img src="image/2.svg" alt="Offer image 5"></a>
-      <a class="category-card" href="image/3.svg" data-fancybox="category-images" data-caption="Offer 6"><img src="image/3.svg" alt="Offer image 6"></a>
-      <a class="category-card" href="image/4.svg" data-fancybox="category-images" data-caption="Offer 7"><img src="image/4.svg" alt="Offer image 7"></a>
-      <a class="category-card" href="image/5.svg" data-fancybox="category-images" data-caption="Offer 8"><img src="image/5.svg" alt="Offer image 8"></a>
-    </div>
+    <div class="category-grid" data-product-grid="offer"></div>
+  </section>
+  <script>
+    (function () {
+      const products = {
+        upcoming: [
+          { name: 'Rechargeable Hand Fan', prefix: 'upc-1', src: 'https://img.drz.lazcdn.com/static/bd/p/e400bb2698a052149752bf6844239f56.jpg_200x200q80.jpg_.webp' },
+          { name: 'Turbo Fan Portable USB Fan', prefix: 'upc-2', src: 'https://img.drz.lazcdn.com/g/kf/Sa376adffa35a425e9766d0317bb88218B.jpg_200x200q80.jpg_.webp' },
+          { name: 'Professional Stainless Steel Lice & Nit Removal', prefix: 'upc-3', src: 'https://img.drz.lazcdn.com/static/bd/p/c9cfa9821547ee099351bfcfcb6c3a90.jpg_200x200q80.avif' },
+          { name: 'Smart Watch', prefix: 'upc-4', src: 'https://img.drz.lazcdn.com/static/bd/p/62db475fe8944f7ba20816671b8d99b5.jpg_200x200q80.avif' },
+          { name: 'Smart Sunglasses', prefix: 'upc-5', src: 'https://img.drz.lazcdn.com/g/kf/Sfae9c1140b854670a8f77ffac34df8f5G.jpg_200x200q80.jpg_.webp' },
+          { name: 'Juice Maker', prefix: 'upc-6', src: 'https://img.drz.lazcdn.com/static/bd/p/74a853b99436ba016ce75b700909c227.jpg_200x200q80.jpg_.webp' },
+          { name: 'Electric Kettle', prefix: 'upc-7', src: 'https://img.drz.lazcdn.com/static/bd/p/2a87bf212a49c4a42509728077997d81.jpg_200x200q80.jpg_.webp' },
+          { name: 'Rechargeable Neck Fan', prefix: 'upc-8', src: 'https://img.drz.lazcdn.com/static/bd/p/b7b49104bbf130547353591dc94a0b62.jpg_200x200q80.avif' }
+        ],
+        offer: [
+          { name: 'Juice Maker', prefix: 'off-1', src: 'https://img.drz.lazcdn.com/static/bd/p/7678d97963b24b00712ea5180d58e718.jpg_200x200q80.jpg_.webp' },
+          { name: 'Smart Watch', prefix: 'off-2', src: 'https://img.drz.lazcdn.com/static/bd/p/2ee5fb79f9f5696c695a50a03ea56e29.jpg_200x200q80.avif' },
+          { name: 'Smart Sunglasses', prefix: 'off-3', src: 'https://img.drz.lazcdn.com/static/bd/p/0d0387aca50de450d45bdb56098ad492.jpg_200x200q80.jpg_.webp' },
+          { name: 'Electric Kettle', prefix: 'off-4', src: 'https://img.drz.lazcdn.com/g/kf/S1ef711384ee94866b9090c570f156d2dk.jpg_200x200q80.jpg_.webp' },
+          { name: 'Lice Removal Comb', prefix: 'off-5', src: 'https://img.drz.lazcdn.com/static/bd/p/06cfc01b9350538a68d0a64fdd55abbe.jpg_200x200q80.avif' },
+          { name: 'Portable Mini USB Fan', prefix: 'off-6', src: 'https://img.drz.lazcdn.com/g/kf/Sc957382fe76848dfa6a77196f4ea790ce.png_200x200q80.png_.webp' },
+          { name: 'Home Appliance', prefix: 'off-7', src: 'https://img.drz.lazcdn.com/static/bd/p/97353eb6ae529adb0792ce3acc5d5fff.jpg_200x200q80.avif' },
+          { name: 'Travel Cooling Fan', prefix: 'off-8', src: 'https://img.drz.lazcdn.com/static/bd/p/1f4738b1621621242307b84f6518b5fe.jpg_200x200q80.jpg_.webp' }
+        ]
+      };
+
+      Object.entries(products).forEach(([key, items]) => {
+        const grid = document.querySelector('[data-product-grid="' + key + '"]');
+        if (!grid) return;
+
+        items.forEach((item) => {
+          const a = document.createElement('a');
+          a.className = 'category-card';
+          a.href = item.src;
+          a.setAttribute('data-fancybox', 'category-images');
+          const label = item.prefix + ' • ' + item.name;
+          a.setAttribute('data-caption', label);
+          a.setAttribute('aria-label', label);
+          a.innerHTML = '<img src="' + item.src + '" alt="' + label + '"><span class="product-badge">' + item.prefix + '</span>';
+          grid.appendChild(a);
+        });
+      });
+    })();
+  </script>
+  <section class="category-section" id="toy" style="margin-top: 28px;">
+    <h2>Toy</h2>
+    <div class="category-grid" id="toy-grid"></div>
+    <script>
+      (function () {
+        const toyUrls = [
+          'https://img.drz.lazcdn.com/g/kf/S48144035a13a45f884182aec080dc2c90.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/bb784c37e5a6ba387faddaab156a3120.png_200x200q80.png_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/1f4cd1042271eeb4e6d31e121f7fd7b1.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/S1185fbded1e54b1bbff6efc21a76661e9.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/Se53265546d1943249e0e6bf7fd181c1fQ.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/g/kf/Sb4526563b80a47218df0bd6e36178a3fN.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/0d0387aca50de450d45bdb56098ad492.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/1f4738b1621621242307b84f6518b5fe.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/bd04f200b82823093ad6d99ef87ca645.jpg_200x200q80.jpg_.webp',
+          'https://img.drz.lazcdn.com/static/bd/p/5b3764230008bd617ee2a32c60edc480.jpg_200x200q80.jpg_.webp'
+        ];
+
+        const grid = document.getElementById('toy-grid');
+        if (!grid) return;
+
+        Array.from({ length: 50 }, (_, index) => {
+          const src = toyUrls[index % toyUrls.length];
+          const prefix = 'toy-' + (index + 1);
+          const label = prefix + ' • Toy Product ' + (index + 1);
+          const card = document.createElement('a');
+          card.className = 'category-card';
+          card.href = src;
+          card.setAttribute('data-fancybox', 'category-images');
+          card.setAttribute('data-caption', label);
+          card.setAttribute('aria-label', label);
+          card.innerHTML = '<img src="' + src + '" alt="' + label + '"><span class="product-badge">' + prefix + '</span>';
+          grid.appendChild(card);
+        });
+      })();
+    </script>
   </section>
 </section>
 
-<main id="gallery">
+<main></main>
 
-  <section class="sec">
-    <div class="sec-h">
-      <h2>Feed posts</h2>
-      <p>1200×630 — feed and link shares · 10 banners</p>
-    </div>
-    <div class="grid">
-      <a class="card" href="out/fb-01-smart-tech-1200x630.png" data-fancybox="banners"
-         data-caption="Smart Tech · 1200x630 · fb-01-smart-tech-1200x630.png">
-        <span class="shot"><img src="out/fb-01-smart-tech-1200x630.png" alt="Smart Tech" loading="lazy"></span>
-        <span class="meta"><b>Smart Tech</b><i>1200x630</i></span>
-      </a>
-      <a class="card" href="out/fb-02-upgrade-lifestyle-1200x630.png" data-fancybox="banners"
-         data-caption="Upgrade Lifestyle · 1200x630 · fb-02-upgrade-lifestyle-1200x630.png">
-        <span class="shot"><img src="out/fb-02-upgrade-lifestyle-1200x630.png" alt="Upgrade Lifestyle" loading="lazy"></span>
-        <span class="meta"><b>Upgrade Lifestyle</b><i>1200x630</i></span>
-      </a>
-      <a class="card" href="out/fb-03-trusted-gadget-partner-1200x630.png" data-fancybox="banners"
-         data-caption="Trusted Gadget Partner · 1200x630 · fb-03-trusted-gadget-partner-1200x630.png">
-        <span class="shot"><img src="out/fb-03-trusted-gadget-partner-1200x630.png" alt="Trusted Gadget Partner" loading="lazy"></span>
-        <span class="meta"><b>Trusted Gadget Partner</b><i>1200x630</i></span>
-      </a>
-      <a class="card" href="out/fb-04-simplifies-life-1200x630.png" data-fancybox="banners"
-         data-caption="Simplifies Life · 1200x630 · fb-04-simplifies-life-1200x630.png">
-        <span class="shot"><img src="out/fb-04-simplifies-life-1200x630.png" alt="Simplifies Life" loading="lazy"></span>
-        <span class="meta"><b>Simplifies Life</b><i>1200x630</i></span>
-      </a>
-      <a class="card" href="out/fb-05-mega-gadget-sale-1200x630.png" data-fancybox="banners"
-         data-caption="Mega Gadget Sale · 1200x630 · fb-05-mega-gadget-sale-1200x630.png">
-        <span class="shot"><img src="out/fb-05-mega-gadget-sale-1200x630.png" alt="Mega Gadget Sale" loading="lazy"></span>
-        <span class="meta"><b>Mega Gadget Sale</b><i>1200x630</i></span>
-      </a>
-      <a class="card" href="out/fb-06-free-delivery-1200x630.png" data-fancybox="banners"
-         data-caption="Free Delivery · 1200x630 · fb-06-free-delivery-1200x630.png">
-        <span class="shot"><img src="out/fb-06-free-delivery-1200x630.png" alt="Free Delivery" loading="lazy"></span>
-        <span class="meta"><b>Free Delivery</b><i>1200x630</i></span>
-      </a>
-      <a class="card" href="out/fb-07-warranty-trust-1200x630.png" data-fancybox="banners"
-         data-caption="Warranty Trust · 1200x630 · fb-07-warranty-trust-1200x630.png">
-        <span class="shot"><img src="out/fb-07-warranty-trust-1200x630.png" alt="Warranty Trust" loading="lazy"></span>
-        <span class="meta"><b>Warranty Trust</b><i>1200x630</i></span>
-      </a>
-      <a class="card" href="out/fb-08-cash-on-delivery-1200x630.png" data-fancybox="banners"
-         data-caption="Cash On Delivery · 1200x630 · fb-08-cash-on-delivery-1200x630.png">
-        <span class="shot"><img src="out/fb-08-cash-on-delivery-1200x630.png" alt="Cash On Delivery" loading="lazy"></span>
-        <span class="meta"><b>Cash On Delivery</b><i>1200x630</i></span>
-      </a>
-      <a class="card" href="out/fb-09-flash-sale-1200x630.png" data-fancybox="banners"
-         data-caption="Flash Sale · 1200x630 · fb-09-flash-sale-1200x630.png">
-        <span class="shot"><img src="out/fb-09-flash-sale-1200x630.png" alt="Flash Sale" loading="lazy"></span>
-        <span class="meta"><b>Flash Sale</b><i>1200x630</i></span>
-      </a>
-      <a class="card" href="out/fb-10-new-arrival-1200x630.png" data-fancybox="banners"
-         data-caption="New Arrival · 1200x630 · fb-10-new-arrival-1200x630.png">
-        <span class="shot"><img src="out/fb-10-new-arrival-1200x630.png" alt="New Arrival" loading="lazy"></span>
-        <span class="meta"><b>New Arrival</b><i>1200x630</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="sec-h">
-      <h2>Square posts</h2>
-      <p>1080×1080 — feed and carousel · 7 banners</p>
-    </div>
-    <div class="grid">
-      <a class="card" href="out/02-earbuds-spotlight-1080x1080.png" data-fancybox="banners"
-         data-caption="Earbuds Spotlight · 1080x1080 · 02-earbuds-spotlight-1080x1080.png">
-        <span class="shot"><img src="out/02-earbuds-spotlight-1080x1080.png" alt="Earbuds Spotlight" loading="lazy"></span>
-        <span class="meta"><b>Earbuds Spotlight</b><i>1080x1080</i></span>
-      </a>
-      <a class="card" href="out/05-home-upgrade-1080x1080.png" data-fancybox="banners"
-         data-caption="Home Upgrade · 1080x1080 · 05-home-upgrade-1080x1080.png">
-        <span class="shot"><img src="out/05-home-upgrade-1080x1080.png" alt="Home Upgrade" loading="lazy"></span>
-        <span class="meta"><b>Home Upgrade</b><i>1080x1080</i></span>
-      </a>
-      <a class="card" href="out/fb-11-smartwatch-spotlight-1080x1080.png" data-fancybox="banners"
-         data-caption="Smartwatch Spotlight · 1080x1080 · fb-11-smartwatch-spotlight-1080x1080.png">
-        <span class="shot"><img src="out/fb-11-smartwatch-spotlight-1080x1080.png" alt="Smartwatch Spotlight" loading="lazy"></span>
-        <span class="meta"><b>Smartwatch Spotlight</b><i>1080x1080</i></span>
-      </a>
-      <a class="card" href="out/fb-12-blender-spotlight-1080x1080.png" data-fancybox="banners"
-         data-caption="Blender Spotlight · 1080x1080 · fb-12-blender-spotlight-1080x1080.png">
-        <span class="shot"><img src="out/fb-12-blender-spotlight-1080x1080.png" alt="Blender Spotlight" loading="lazy"></span>
-        <span class="meta"><b>Blender Spotlight</b><i>1080x1080</i></span>
-      </a>
-      <a class="card" href="out/fb-13-kitchen-combo-1080x1080.png" data-fancybox="banners"
-         data-caption="Kitchen Combo · 1080x1080 · fb-13-kitchen-combo-1080x1080.png">
-        <span class="shot"><img src="out/fb-13-kitchen-combo-1080x1080.png" alt="Kitchen Combo" loading="lazy"></span>
-        <span class="meta"><b>Kitchen Combo</b><i>1080x1080</i></span>
-      </a>
-      <a class="card" href="out/fb-14-usb-fan-1080x1080.png" data-fancybox="banners"
-         data-caption="Usb Fan · 1080x1080 · fb-14-usb-fan-1080x1080.png">
-        <span class="shot"><img src="out/fb-14-usb-fan-1080x1080.png" alt="Usb Fan" loading="lazy"></span>
-        <span class="meta"><b>Usb Fan</b><i>1080x1080</i></span>
-      </a>
-      <a class="card" href="out/fb-15-audio-spotlight-1080x1080.png" data-fancybox="banners"
-         data-caption="Audio Spotlight · 1080x1080 · fb-15-audio-spotlight-1080x1080.png">
-        <span class="shot"><img src="out/fb-15-audio-spotlight-1080x1080.png" alt="Audio Spotlight" loading="lazy"></span>
-        <span class="meta"><b>Audio Spotlight</b><i>1080x1080</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="sec-h">
-      <h2>Page covers</h2>
-      <p>1640×856 — page cover photo · 3 banners</p>
-    </div>
-    <div class="grid">
-      <a class="card" href="out/fb-16-cover-smart-tech-1640x856.png" data-fancybox="banners"
-         data-caption="Cover Smart Tech · 1640x856 · fb-16-cover-smart-tech-1640x856.png">
-        <span class="shot"><img src="out/fb-16-cover-smart-tech-1640x856.png" alt="Cover Smart Tech" loading="lazy"></span>
-        <span class="meta"><b>Cover Smart Tech</b><i>1640x856</i></span>
-      </a>
-      <a class="card" href="out/fb-17-cover-trusted-partner-1640x856.png" data-fancybox="banners"
-         data-caption="Cover Trusted Partner · 1640x856 · fb-17-cover-trusted-partner-1640x856.png">
-        <span class="shot"><img src="out/fb-17-cover-trusted-partner-1640x856.png" alt="Cover Trusted Partner" loading="lazy"></span>
-        <span class="meta"><b>Cover Trusted Partner</b><i>1640x856</i></span>
-      </a>
-      <a class="card" href="out/fb-18-cover-upgrade-lifestyle-1640x856.png" data-fancybox="banners"
-         data-caption="Cover Upgrade Lifestyle · 1640x856 · fb-18-cover-upgrade-lifestyle-1640x856.png">
-        <span class="shot"><img src="out/fb-18-cover-upgrade-lifestyle-1640x856.png" alt="Cover Upgrade Lifestyle" loading="lazy"></span>
-        <span class="meta"><b>Cover Upgrade Lifestyle</b><i>1640x856</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="sec-h">
-      <h2>Stories</h2>
-      <p>1080×1920 — story and reel · 3 banners</p>
-    </div>
-    <div class="grid">
-      <a class="card" href="out/04-flash-deal-story-1080x1920.png" data-fancybox="banners"
-         data-caption="Flash Deal Story · 1080x1920 · 04-flash-deal-story-1080x1920.png">
-        <span class="shot"><img src="out/04-flash-deal-story-1080x1920.png" alt="Flash Deal Story" loading="lazy"></span>
-        <span class="meta"><b>Flash Deal Story</b><i>1080x1920</i></span>
-      </a>
-      <a class="card" href="out/fb-19-story-flash-deal-1080x1920.png" data-fancybox="banners"
-         data-caption="Story Flash Deal · 1080x1920 · fb-19-story-flash-deal-1080x1920.png">
-        <span class="shot"><img src="out/fb-19-story-flash-deal-1080x1920.png" alt="Story Flash Deal" loading="lazy"></span>
-        <span class="meta"><b>Story Flash Deal</b><i>1080x1920</i></span>
-      </a>
-      <a class="card" href="out/fb-20-story-new-arrival-1080x1920.png" data-fancybox="banners"
-         data-caption="Story New Arrival · 1080x1920 · fb-20-story-new-arrival-1080x1920.png">
-        <span class="shot"><img src="out/fb-20-story-new-arrival-1080x1920.png" alt="Story New Arrival" loading="lazy"></span>
-        <span class="meta"><b>Story New Arrival</b><i>1080x1920</i></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="sec-h">
-      <h2>Earlier set</h2>
-      <p>previous dark-theme banners · 3 banners</p>
-    </div>
-    <div class="grid">
-      <a class="card" href="out/01-gadget-fest-1200x628.png" data-fancybox="banners"
-         data-caption="Gadget Fest · 1200x628 · 01-gadget-fest-1200x628.png">
-        <span class="shot"><img src="out/01-gadget-fest-1200x628.png" alt="Gadget Fest" loading="lazy"></span>
-        <span class="meta"><b>Gadget Fest</b><i>1200x628</i></span>
-      </a>
-      <a class="card" href="out/03-page-cover-1640x624.png" data-fancybox="banners"
-         data-caption="Page Cover · 1640x624 · 03-page-cover-1640x624.png">
-        <span class="shot"><img src="out/03-page-cover-1640x624.png" alt="Page Cover" loading="lazy"></span>
-        <span class="meta"><b>Page Cover</b><i>1640x624</i></span>
-      </a>
-      <a class="card" href="out/06-free-delivery-trust-1200x628.png" data-fancybox="banners"
-         data-caption="Free Delivery Trust · 1200x628 · 06-free-delivery-trust-1200x628.png">
-        <span class="shot"><img src="out/06-free-delivery-trust-1200x628.png" alt="Free Delivery Trust" loading="lazy"></span>
-        <span class="meta"><b>Free Delivery Trust</b><i>1200x628</i></span>
-      </a>
-    </div>
-  </section>
-</main>
-
-<footer>TechCartBD · generated by make-gallery.js · re-run after adding banners</footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a class="footer-brand" href="https://techcartbd.com" target="_blank" rel="noreferrer">
+      <strong>TechCartBD</strong>
+      <span>Smart tech. Better life.</span>
+    </a>
+    <nav class="footer-links" aria-label="Footer contact links">
+      <a href="mailto:milonmallick55@gmail.com">Email</a>
+      <a href="tel:+8801933834282">Call +880 1933-834282</a>
+      <a href="https://techcartbd.com" target="_blank" rel="noreferrer">techcartbd.com</a>
+    </nav>
+    <p class="footer-copy">&copy; <span data-current-year></span> TechCartBD. All rights reserved.</p>
+  </div>
+</footer>
 
 <nav class="mobile-app-bar" aria-label="Mobile gallery navigation">
   <a href="#gallery" aria-label="Show all banners">
@@ -445,6 +444,9 @@
 
 <script src="vendor/fancybox/fancybox.umd.js"></script>
 <script>
+  document.querySelectorAll('[data-current-year]').forEach((year) => {
+    year.textContent = new Date().getFullYear();
+  });
   document.querySelector('[data-scroll-to="gallery"]').addEventListener('click', () => {
     document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
   });
